@@ -9,7 +9,7 @@ int main()
 	{
 		sf::Event e;
 		while (win.pollEvent(e))
-		{ 
+		{
 			if (e.type == sf::Event::Closed)
 				win.close();
 		}
