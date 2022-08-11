@@ -107,6 +107,13 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalIncludeDirectories>C:\Program Files\Lua\include;D:\5.SFML\.lib\SFML2.5.1_vs\include</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)A</AssemblerListingLocation>
+      <ModuleOutputFile>$(IntDir)A</ModuleOutputFile>
+      <ModuleDependenciesFile>$(IntDir)A</ModuleDependenciesFile>
+      <ObjectFileName>$(IntDir)A\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)A\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)A</XMLDocumentationFileName>
+      <SourceDependenciesFile>$(IntDir)A</SourceDependenciesFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -126,6 +133,13 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalIncludeDirectories>C:\Program Files\Lua\include;D:\5.SFML\.lib\SFML2.5.1_vs\include</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)A</AssemblerListingLocation>
+      <ModuleOutputFile>$(IntDir)A</ModuleOutputFile>
+      <ModuleDependenciesFile>$(IntDir)A</ModuleDependenciesFile>
+      <ObjectFileName>$(IntDir)A\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)A\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)A</XMLDocumentationFileName>
+      <SourceDependenciesFile>$(IntDir)A</SourceDependenciesFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -137,7 +151,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Untitled.cpp" />
+    <ClCompile Include="source\Core\ECS\componentArray.cpp" />
+    <ClCompile Include="source\Core\ECS\entityManager.cpp" />
+    <ClCompile Include="source\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="header\Core\ECS\componentArray.hpp" />
+    <ClInclude Include="header\Core\ECS\componentType.hpp" />
+    <ClInclude Include="header\Core\ECS\entity.hpp" />
+    <ClInclude Include="header\Core\ECS\entityManager.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
