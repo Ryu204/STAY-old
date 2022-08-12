@@ -152,14 +152,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="source\Core\ECS\componentArray.cpp" />
+    <ClCompile Include="source\Core\ECS\componentManager.cpp" />
     <ClCompile Include="source\Core\ECS\entityManager.cpp" />
     <ClCompile Include="source\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="header\Core\coreAlias.hpp" />
     <ClInclude Include="header\Core\ECS\componentArray.hpp" />
+    <ClInclude Include="header\Core\ECS\componentManager.hpp" />
     <ClInclude Include="header\Core\ECS\componentType.hpp" />
     <ClInclude Include="header\Core\ECS\entity.hpp" />
     <ClInclude Include="header\Core\ECS\entityManager.hpp" />
+    <ClInclude Include="header\Core\ECS\system.hpp" />
+    <ClInclude Include="header\Core\ECS\systemManager.hpp" />
+    <ClInclude Include="header\Core\ECS\value.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,7 +4,7 @@
 /*
 	Part of ECS implementation
 	Define Entity as a simple unsigned interger
-	Define Signature (Key) as a bitset with length of STAY_MAX_COMPONENT
+	Define Signature (Key) as a bitset with length of MAX_COMPONENT
 */
 
 #include <numeric>
