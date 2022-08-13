@@ -151,21 +151,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\Core\application.cpp" />
     <ClCompile Include="source\Core\ECS\componentArray.cpp" />
     <ClCompile Include="source\Core\ECS\componentManager.cpp" />
+    <ClCompile Include="source\Core\ECS\engine.cpp" />
     <ClCompile Include="source\Core\ECS\entityManager.cpp" />
+    <ClCompile Include="source\Core\ECS\system.cpp" />
+    <ClCompile Include="source\Core\ECS\systemManager.cpp" />
+    <ClCompile Include="source\Core\world.cpp" />
     <ClCompile Include="source\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="header\Core\application.hpp" />
     <ClInclude Include="header\Core\coreAlias.hpp" />
     <ClInclude Include="header\Core\ECS\componentArray.hpp" />
     <ClInclude Include="header\Core\ECS\componentManager.hpp" />
     <ClInclude Include="header\Core\ECS\componentType.hpp" />
+    <ClInclude Include="header\Core\ECS\engine.hpp" />
     <ClInclude Include="header\Core\ECS\entity.hpp" />
     <ClInclude Include="header\Core\ECS\entityManager.hpp" />
     <ClInclude Include="header\Core\ECS\system.hpp" />
     <ClInclude Include="header\Core\ECS\systemManager.hpp" />
     <ClInclude Include="header\Core\ECS\value.hpp" />
+    <ClInclude Include="header\Core\world.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

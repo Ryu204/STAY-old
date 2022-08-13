@@ -9,7 +9,7 @@ namespace ECS
 		for (Entity i = 0; i < MAX_ENTITY; i++)
 		{
 			m_entities.push(i);
-			m_signatures[i] = Signature();
+			m_Signatures[i] = Signature();
 		}
 	}
 
@@ -24,19 +24,19 @@ namespace ECS
 	void EntityManager::retrieve(Entity e)
 	{
 		assert(e < MAX_ENTITY && "Entity out of range");
-		m_signatures[e] = Signature();
+		m_Signatures[e] = Signature();
 		m_entities.push(e);
 	}
 
 	void EntityManager::set_Signature(Entity e, Signature s)
 	{
 		assert(e < MAX_ENTITY && "Entity out of range");
-		m_signatures[e] = s;
+		m_Signatures[e] = s;
 	}
 
 	Signature EntityManager::get_Signature(Entity e) const
 	{
 		assert(e < MAX_ENTITY && "Entity out of range");
-		return m_signatures[e];
+		return m_Signatures[e];
 	}
 }

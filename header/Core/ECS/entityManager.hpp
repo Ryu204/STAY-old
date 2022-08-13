@@ -25,7 +25,7 @@ namespace ECS
 		Signature get_Signature(Entity e) const;
 	private:
 		std::queue<Entity> m_entities;
-		std::array<Signature, MAX_ENTITY> m_signatures;
+		std::array<Signature, MAX_ENTITY> m_Signatures;
 	};
 }
 

@@ -2,10 +2,13 @@
 #define STAY_HEADER_CORE_COREALIAS_HPP
 
 /*
-	This file list #define macros
+	This file list #define macros and typedef
 */
+
+#include <SFML/Graphics.hpp>
 
 #define UPtr std::unique_ptr
 #define SPtr std::shared_ptr
+typedef sf::RenderWindow RWindow;
 
 #endif // !STAY_HEADER_CORE_COREALIAS_HPP

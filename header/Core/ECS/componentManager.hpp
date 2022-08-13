@@ -42,7 +42,13 @@ namespace ECS
 		void remove_component(Entity e);
 
 		template<typename T>
+		T& get_component(Entity e);
+
+		template<typename T>
 		bool has_component(Entity e);
+
+		template<typename T>
+		ComponentType get_component_type();
 
 		void entity_destroyed(Entity e);
 	private:
@@ -82,11 +88,27 @@ namespace ECS
 	}
 
 	template<typename T>
+	T& ComponentManager::get_component(Entity e)
+	{
+		auto name = typeid(T).name();
+		assert(m_type_list.find(name) != m_type_list.end() && "Non-existed component type");
+		return get_array<T>().get_data(e);
+	}
+
+	template<typename T>
 	bool ComponentManager::has_component(Entity e)
 	{
 		auto name = typeid(T).name();
 		assert(m_type_list.find(name) != m_type_list.end() && "Non-existed component type");
 		return get_array<T>().has_data(e);
+	}
+
+	template<typename T>
+	ComponentType ComponentManager::get_component_type()
+	{
+		auto name = typeid(T).name();
+		assert(m_type_list[name] != m_type_list.end() && "Non-existed component type");
+		return m_type_list[name];
 	}
 
 	template<typename T>

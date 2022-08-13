@@ -12,14 +12,17 @@
 
 namespace ECS
 {
+	class Engine;
+
 	class System
 	{
 	public:
-		System();
-	protected:
-		// Derived classes will manipulate these two members
+		System(Engine* engine);
+		virtual ~System() = default;
+		// Derived classes will manipulate entities set and the engine
 		std::set<Entity> m_entities;
-		// Engine* m_engine;
+	protected:
+		Engine* m_engine;
 	};
 }
 
