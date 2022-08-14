@@ -7,7 +7,7 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "coreAlias.hpp"
+#include "Core/coreAlias.hpp"
 #include "world.hpp"
 
 class Application

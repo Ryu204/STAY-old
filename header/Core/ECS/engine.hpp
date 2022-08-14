@@ -43,15 +43,15 @@ namespace ECS
 
 		// System
 		template<typename T>
-		void register_system();
+		SPtr<T> register_system();
 
 		template<typename T>
 		void set_system_Signature(Signature s);
-	private:
+
 		template<typename T>
 		Signature generate_Signature();
 
-		template<typename T, typename... Ts>
+		template<typename T1, typename T2, typename... Ts>
 		Signature generate_Signature();
 	private:
 		UPtr<EntityManager> m_entities;
@@ -78,9 +78,9 @@ namespace ECS
 	}
 
 	template<typename T>
-	T& Engine::get_component(Entity e)
+	void Engine::remove_component(Entity e)
 	{
-		return m_components->get_component<T>(e);
+		m_components->remove_component<T>(e);
 
 		Signature s = m_entities->get_Signature(e);
 		s.set(m_components->get_component_type<T>(), false);
@@ -90,15 +90,21 @@ namespace ECS
 	}
 
 	template<typename T>
+	T& Engine::get_component(Entity e)
+	{
+		return m_components->get_component<T>(e);
+	}
+
+	template<typename T>
 	bool Engine::has_component(Entity e)
 	{
 		return m_components->has_component<T>(e);
 	}
 
 	template<typename T>
-	void Engine::register_system()
+	SPtr<T> Engine::register_system()
 	{
-		m_systems->register_system<T>();
+		return m_systems->register_system<T>(this);
 	}
 
 	template<typename T>
@@ -115,11 +121,11 @@ namespace ECS
 		return res;
 	}
 
-	template<typename T, typename... Ts>
+	template<typename T1, typename T2, typename... Ts>
 	Signature Engine::generate_Signature()
 	{
-		Signature res = generate_Signature<Ts>();
-		res.set(m_components->get_component_type<T>());
+		Signature res = generate_Signature<T2, Ts...>();
+		res.set(m_components->get_component_type<T1>());
 		return res;
 	}
 }

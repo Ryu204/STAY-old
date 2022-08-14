@@ -65,9 +65,9 @@ namespace ECS
 	{
 		auto name = typeid(T).name();
 		assert(m_type_list.find(name) == m_type_list.end() && "Registered component type");
-		assert(m_available_type >= MAX_COMPONENT && "Too much component types");
-		m_type_list.emplace({ name, m_available_type });
-		m_arrays.emplace({ name, ComponentArray<T>() });
+		assert(m_available_type < MAX_COMPONENT && "Too much component types");
+		m_type_list.emplace(name, m_available_type);
+		m_arrays.emplace(name, std::make_shared<ComponentArray<T>>());
 		m_available_type++;
 	}
 
@@ -107,7 +107,7 @@ namespace ECS
 	ComponentType ComponentManager::get_component_type()
 	{
 		auto name = typeid(T).name();
-		assert(m_type_list[name] != m_type_list.end() && "Non-existed component type");
+		assert(m_type_list.find(name) != m_type_list.end() && "Non-existed component type");
 		return m_type_list[name];
 	}
 
@@ -115,7 +115,7 @@ namespace ECS
 	ComponentArray<T>& ComponentManager::get_array()
 	{
 		auto name = typeid(T).name();
-		assert(m_type_list[name] != m_type_list.end() && "Non-existed component type");
+		assert(m_type_list.find(name) != m_type_list.end() && "Non-existed component type");
 		return *dynamic_pointer_cast<ComponentArray<T>>(m_arrays[name]);
 	}
 }

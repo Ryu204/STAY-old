@@ -1,0 +1,7 @@
+#ifndef STAY_HEADER_LOGIC_SYSTEM_SYSTEMLIST_HPP
+#define STAY_HEADER_LOGIC_SYSTEM_SYSTEMLIST_HPP
+
+#include "renderSystem.hpp"
+#include "rigidSystem.hpp"
+
+#endif // !STAY_HEADER_LOGIC_SYSTEM_SYSTEMLIST_HPP

@@ -26,6 +26,8 @@
 
 namespace ECS
 {
+	class Engine;
+
 	class SystemManager
 	{
 	public:
@@ -33,7 +35,7 @@ namespace ECS
 
 		//This function returns a shared_ptr of the system
 		template<typename T>
-		SPtr<T> register_system();
+		SPtr<T> register_system(Engine* engine);
 
 		template<typename T>
 		void set_Signature(Signature s);
@@ -47,13 +49,13 @@ namespace ECS
 	};
 
 	template<typename T>
-	SPtr<T> SystemManager::register_system()
+	SPtr<T> SystemManager::register_system(Engine* engine)
 	{
 		const char* name = typeid(T).name();
 		assert(m_systems.find(name) == m_systems.end() && "System registered");
-		auto res = std::make_shared<T>();
-		m_systems.emplace({ name, res });
-		m_Signatures.emplace({ name, Signature() });
+		auto res = std::make_shared<T>(engine);
+		m_systems.emplace(name, res);
+		m_Signatures.emplace(name, Signature());
 		return res;
 	}
 

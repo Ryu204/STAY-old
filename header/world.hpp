@@ -5,8 +5,9 @@
 	This class handles everything inside GameState
 */
 
-#include "coreAlias.hpp"
-#include "ECS/engine.hpp"
+#include "Core/coreAlias.hpp"
+#include "Core/ECS/engine.hpp"
+#include "Logic/System/ecsInit.hpp"
 
 class World
 {
@@ -18,6 +19,9 @@ public:
 private:
 	RWindow* m_window;
 	ECS::Engine m_engine;
+
+	SPtr<Logic::RenderSystem> m_renderer;
+	SPtr<Logic::RigidSystem> m_rigid;
 };
 
 #endif // !STAY_HEADER_CORE_WORLD_HPP

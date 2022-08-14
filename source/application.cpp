@@ -1,4 +1,4 @@
-#include "../../header/Core/application.hpp"
+#include "../header/application.hpp"
 
 Application::Application()
 	: m_window(sf::VideoMode(600, 600), "STAY")
@@ -51,7 +51,7 @@ void Application::update(sf::Time dt)
 
 void Application::render()
 {
-	m_window.clear(sf::Color::Magenta);
+	m_window.clear();
 	m_world.render();
 	m_window.display();
 }

@@ -10,5 +10,6 @@
 #define UPtr std::unique_ptr
 #define SPtr std::shared_ptr
 typedef sf::RenderWindow RWindow;
+typedef sf::RenderTarget RTarget;
 
 #endif // !STAY_HEADER_CORE_COREALIAS_HPP
