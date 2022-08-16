@@ -1,9 +1,8 @@
-#ifndef STAY_HEADER_LOGIC_COMPONENT_TRANSFORM_HPP
-#define STAY_HEADER_LOGIC_COMPONENT_TRANSFORM_HPP
+#ifndef STAY_LOGIC_COMPONENT_TRANSFORM_HPP
+#define STAY_LOGIC_COMPONENT_TRANSFORM_HPP
 
 /*
 	Transform component
-	Make use of sf::Transform
 */
 
 #include <SFML/Graphics.hpp>
@@ -18,4 +17,4 @@ namespace Component
 	};
 }
 
-#endif // STAY_HEADER_LOGIC_COMPONENT_TRANSFORM_HPP
+#endif // STAY_LOGIC_COMPONENT_TRANSFORM_HPP

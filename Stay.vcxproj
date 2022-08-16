@@ -158,6 +158,7 @@
     <ClCompile Include="source\Core\ECS\entityManager.cpp" />
     <ClCompile Include="source\Core\ECS\system.cpp" />
     <ClCompile Include="source\Core\ECS\systemManager.cpp" />
+    <ClCompile Include="source\Logic\Loader\textureHolder.cpp" />
     <ClCompile Include="source\Logic\System\ecsInit.cpp" />
     <ClCompile Include="source\world.cpp" />
     <ClCompile Include="source\Logic\System\renderSystem.cpp" />
@@ -176,8 +177,9 @@
     <ClInclude Include="header\Core\ECS\system.hpp" />
     <ClInclude Include="header\Core\ECS\systemManager.hpp" />
     <ClInclude Include="header\Core\ECS\value.hpp" />
+    <ClInclude Include="header\Core\resourceHolder.hpp" />
+    <ClInclude Include="header\Logic\Loader\textureHolder.hpp" />
     <ClInclude Include="header\Logic\System\ecsInit.hpp" />
-    <ClInclude Include="header\Logic\System\systemList.hpp" />
     <ClInclude Include="header\world.hpp" />
     <ClInclude Include="header\Logic\Component\componentList.hpp" />
     <ClInclude Include="header\Logic\Component\render.hpp" />

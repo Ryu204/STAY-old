@@ -1,5 +1,12 @@
-#ifndef STAY_HEADER_LOGIC_SYSTEM_RENDERSYSTEM_HPP
-#define STAY_HEADER_LOGIC_SYSTEM_RENDERSYSTEM_HPP
+#ifndef STAY_LOGIC_SYSTEM_RENDERSYSTEM_HPP
+#define STAY_LOGIC_SYSTEM_RENDERSYSTEM_HPP
+
+/*
+	This system draws entities using sf::VertexArray
+	It layers objects using their texture as the layer
+	
+	That limits a lot of things, though
+*/
 
 #include <unordered_map>
 
@@ -24,4 +31,4 @@ namespace Logic
 	};
 }
 
-#endif // !STAY_HEADER_LOGIC_SYSTEM_RENDERSYSTEM_HPP
+#endif // !STAY_LOGIC_SYSTEM_RENDERSYSTEM_HPP

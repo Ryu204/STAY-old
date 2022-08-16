@@ -1,15 +1,19 @@
-#ifndef STAY_HEADER_CORE_COREALIAS_HPP
-#define STAY_HEADER_CORE_COREALIAS_HPP
+#ifndef STAY_CORE_COREALIAS_HPP
+#define STAY_CORE_COREALIAS_HPP
 
 /*
 	This file list #define macros and typedef
 */
 
 #include <SFML/Graphics.hpp>
+#include<memory>
 
-#define UPtr std::unique_ptr
-#define SPtr std::shared_ptr
+template<typename T>
+using UPtr = std::unique_ptr<T>;
+template<typename T>
+using SPtr = std::shared_ptr<T>;
+
 typedef sf::RenderWindow RWindow;
 typedef sf::RenderTarget RTarget;
 
-#endif // !STAY_HEADER_CORE_COREALIAS_HPP
+#endif // !STAY_CORE_COREALIAS_HPP

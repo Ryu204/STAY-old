@@ -1,12 +1,11 @@
-#ifndef STAY_HEADER_CORE_WORLD_HPP
-#define STAY_HEADER_CORE_WORLD_HPP
+#ifndef STAY_WORLD_HPP
+#define STAY_WORLD_HPP
 
 /*
 	This class handles everything inside GameState
+	and has control over every system
 */
 
-#include "Core/coreAlias.hpp"
-#include "Core/ECS/engine.hpp"
 #include "Logic/System/ecsInit.hpp"
 
 class World
@@ -22,6 +21,8 @@ private:
 
 	SPtr<Logic::RenderSystem> m_renderer;
 	SPtr<Logic::RigidSystem> m_rigid;
+
+	TextureHolder m_textures;
 };
 
-#endif // !STAY_HEADER_CORE_WORLD_HPP
+#endif // !STAY_WORLD_HPP

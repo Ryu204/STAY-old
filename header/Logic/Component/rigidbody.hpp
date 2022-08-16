@@ -1,9 +1,8 @@
-#ifndef STAY_HEADER_LOGIC_COMPONENT_RIGIDBODY_HPP
-#define STAY_HEADER_LOGIC_COMPONRNT_RIGIDBODY_HPP
+#ifndef STAY_LOGIC_COMPONENT_RIGIDBODY_HPP
+#define STAY_LOGIC_COMPONRNT_RIGIDBODY_HPP
 
 /*
 	Rigidbody component
-	Described as a rectangle with velocity/acceleration
 */
 
 #include <SFML/Graphics.hpp>
@@ -17,4 +16,4 @@ namespace Component
 	};
 }
 
-#endif // !STAY_HEADER_LOGIC_COMPONENT_RIGIDBODY_HPP
+#endif // !STAY_LOGIC_COMPONENT_RIGIDBODY_HPP

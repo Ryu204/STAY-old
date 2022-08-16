@@ -1,5 +1,5 @@
-#ifndef STAY_HEADER_CORE_ECS_VALUE_HPP
-#define STAY_HEADER_CORE_ECS_VALUE_HPP
+#ifndef STAY_CORE_ECS_VALUE_HPP
+#define STAY_CORE_ECS_VALUE_HPP
 
 /*
 	Part of ECS implementation
@@ -14,4 +14,4 @@ namespace ECS
 	constexpr std::size_t MAX_COMPONENT = 64;
 }
 
-#endif //!STAY_HEADER_CORE_ECS_VALUE_HPP
+#endif //!STAY_CORE_ECS_VALUE_HPP

@@ -1,5 +1,5 @@
-#ifndef STAY_HEADER_CORE_APPLICATION_HPP
-#define STAY_HEADER_CORE_APPLICATION_HPP
+#ifndef STAY_CORE_APPLICATION_HPP
+#define STAY_CORE_APPLICATION_HPP
 
 /*
 	This class contains the game loops
@@ -25,4 +25,4 @@ private:
 	World m_world;
 };
 
-#endif // !STAY_HEADER_CORE_APPLICATION_HPP
+#endif // !STAY_CORE_APPLICATION_HPP

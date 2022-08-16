@@ -1,5 +1,5 @@
-#ifndef STAY_HEADER_CORE_ECS_ENTITY_HPP
-#define STAY_HEADER_CORE_ECS_ENTITY_HPP
+#ifndef STAY_CORE_ECS_ENTITY_HPP
+#define STAY_CORE_ECS_ENTITY_HPP
 
 /*
 	Part of ECS implementation
@@ -18,4 +18,4 @@ namespace ECS
 	typedef std::bitset<MAX_COMPONENT> Signature;
 }
 
-#endif // !STAY_HEADER_CORE_ECS_ENTITY_HPP
+#endif // !STAY_CORE_ECS_ENTITY_HPP

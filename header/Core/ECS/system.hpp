@@ -1,5 +1,5 @@
-#ifndef STAY_HEADER_CORE_ECS_SYSTEM_HPP
-#define STAY_HEADER_CORE_ECS_SYSTEM_HPP
+#ifndef STAY_CORE_ECS_SYSTEM_HPP
+#define STAY_CORE_ECS_SYSTEM_HPP
 
 /*
 	Part of ECS implementation
@@ -26,4 +26,4 @@ namespace ECS
 	};
 }
 
-#endif // !STAY_HEADER_CORE_ECS_SYSTEM_HPP
+#endif // !STAY_CORE_ECS_SYSTEM_HPP

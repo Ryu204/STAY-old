@@ -1,5 +1,5 @@
-#ifndef STAY_HEADER_CORE_ECS_COMPONENTMANAGER_HPP
-#define STAY_HEADER_CORE_ECS_COMPONENTMANAGER_HPP
+#ifndef STAY_CORE_ECS_COMPONENTMANAGER_HPP
+#define STAY_CORE_ECS_COMPONENTMANAGER_HPP
 
 /*
 	Part of ECS implementation
@@ -19,7 +19,6 @@
 
 #include <typeinfo>
 #include<cassert>
-#include<memory>
 
 #include "componentArray.hpp"
 #include "componentType.hpp"
@@ -120,4 +119,4 @@ namespace ECS
 	}
 }
 
-#endif // !STAY_HEADER_CORE_ECS_COMPONENTMANAGER_HPP
+#endif // !STAY_CORE_ECS_COMPONENTMANAGER_HPP

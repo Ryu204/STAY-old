@@ -1,5 +1,5 @@
-#ifndef STAY_HEADER_CORE_ECS_SYSTEMMANAGER_HPP
-#define STAY_HEADER_CORE_ECS_SYSTEMMANAGER_HPP
+#ifndef STAY_CORE_ECS_SYSTEMMANAGER_HPP
+#define STAY_CORE_ECS_SYSTEMMANAGER_HPP
 
 /*
 	Part of ECS implementation
@@ -18,7 +18,6 @@
 */
 
 #include <map>
-#include <memory>
 #include <cassert>
 
 #include "system.hpp"
@@ -68,4 +67,4 @@ namespace ECS
 	}
 }
 
-#endif // !STAY_HEADER_CORE_ECS_SYSTEMMANAGER_HPP
+#endif // !STAY_CORE_ECS_SYSTEMMANAGER_HPP

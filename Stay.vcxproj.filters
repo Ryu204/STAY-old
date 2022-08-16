@@ -51,6 +51,9 @@
     <ClCompile Include="source\Logic\System\ecsInit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\Logic\Loader\textureHolder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\Core\ECS\entityManager.hpp">
@@ -110,7 +113,10 @@
     <ClInclude Include="header\Logic\System\ecsInit.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Logic\System\systemList.hpp">
+    <ClInclude Include="header\Core\resourceHolder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Logic\Loader\textureHolder.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

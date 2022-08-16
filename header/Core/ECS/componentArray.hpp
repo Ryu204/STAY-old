@@ -1,5 +1,5 @@
-#ifndef STAY_HEADER_CORE_ECS_COMPONENTARRAY_HPP
-#define STAY_HEADER_CORE_ECS_COMPONENTARRAY_HPP
+#ifndef STAY_CORE_ECS_COMPONENTARRAY_HPP
+#define STAY_CORE_ECS_COMPONENTARRAY_HPP
 
 /*
 	Part of ECS implementation
@@ -69,7 +69,7 @@ namespace ECS
 		assert(has_data(e) && "Non-existed component");
 		m_real_size--; // m_real_size is now last valid index
 		auto hole_index = m_EnToIn[e], last_entity = m_InToE[m_real_size];
-		std::swap(m_array[hole_index], m_array[m_real_size]);
+		m_array[hole_index] = m_array[m_real_size];
 		m_EnToIn[last_entity] = hole_index;
 		m_InToE[hole_index] = last_entity;
 		m_EnToIn.erase(e);
@@ -97,4 +97,4 @@ namespace ECS
 	}
 }
 
-#endif // !STAY_HEADER_CORE_ECS_COMPONENTARRAY_HPP
+#endif // !STAY_CORE_ECS_COMPONENTARRAY_HPP

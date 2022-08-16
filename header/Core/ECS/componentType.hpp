@@ -1,5 +1,5 @@
-#ifndef STAY_HEADER_CORE_ECS_COMPONENTTYPE_HPP
-#define STAY_HEADER_CORE_ECS_COMPONENTTYPE_HPP
+#ifndef STAY_CORE_ECS_COMPONENTTYPE_HPP
+#define STAY_CORE_ECS_COMPONENTTYPE_HPP
 
 /*
 	Part of ECS implementation
@@ -13,4 +13,4 @@ namespace ECS
 	typedef std::uint64_t ComponentType;
 }
 
-#endif // !STAY_HEADER_CORE_ECS_COMPONENT_HPP
+#endif // !STAY_CORE_ECS_COMPONENT_HPP

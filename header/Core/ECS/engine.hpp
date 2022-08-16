@@ -1,5 +1,5 @@
-#ifndef STAY_HEADER_CORE_ECS_ENGINE_HPP
-#define STAY_HEADER_CORE_ECS_ENGINE_HPP
+#ifndef STAY_CORE_ECS_ENGINE_HPP
+#define STAY_CORE_ECS_ENGINE_HPP
 
 /*
 	Part of ECS implementation
@@ -8,6 +8,13 @@
 	It provides fuctionalities that will be used by the
 	game's classes such as Entity's creation, component 
 	access, manages systems .etc
+	===============================================
+	Before using the engine:
+	1. Register the components
+	2. Register systems and init them
+	3. Set Signatures of systems
+	===============================================
+	Check out "ecsInit.cpp"
 */
 
 #include "entityManager.hpp"
@@ -130,4 +137,4 @@ namespace ECS
 	}
 }
 
-#endif // !STAY_HEADER_CORE_ECS_ENGINE_HPP
+#endif // !STAY_CORE_ECS_ENGINE_HPP
