@@ -4,5 +4,6 @@
 #include "render.hpp"
 #include "rigidBody.hpp"
 #include "transform.hpp"
+#include "collider.hpp"
 
 #endif // !STAY_LOGIC_COMPONENTLIST_HPP

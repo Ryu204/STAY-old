@@ -51,7 +51,7 @@ void Application::update(sf::Time dt)
 
 void Application::render()
 {
-	m_window.clear();
+	m_window.clear(sf::Color::White);
 	m_world.render();
 	m_window.display();
 }

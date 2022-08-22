@@ -11,8 +11,8 @@ namespace Component
 {
 	struct Render
 	{
-		sf::Texture* texture;
-		sf::IntRect texture_rect = sf::IntRect(0, 0, 10, 10);
+		sf::Texture* texture = nullptr;
+		sf::IntRect texture_rect = sf::IntRect(0, 0, 1, 1);
 		sf::Color color = sf::Color::White;
 	};
 }

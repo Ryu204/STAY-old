@@ -1,5 +1,6 @@
 #include "../../../header/Logic/System/rigidSystem.hpp"
 #include "../../../header/Logic/Component/componentList.hpp"
+#include "../../../header/Helper/utilise.hpp"
 
 namespace Logic
 {
@@ -14,9 +15,8 @@ namespace Logic
 			auto& tf = m_engine->get_component<Component::Transform>(e);
 			auto& rg = m_engine->get_component<Component::Rigidbody>(e);
 
-			rg.velocity += rg.acceleration * dt.asSeconds();
-			tf.rect.left += rg.velocity.x * dt.asSeconds();
-			tf.rect.top += rg.velocity.y * dt.asSeconds();
+			if (!rg.fixed)
+				rg.velocity += rg.acceleration * dt.asSeconds();
 		}
 	}
 }
