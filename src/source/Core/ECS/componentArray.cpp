@@ -1,4 +1,4 @@
-#include "../../header/Core/ECS/componentArray.hpp"
+#include "../../../header/Core/ECS/componentArray.hpp"
 
 #include<cassert>
 

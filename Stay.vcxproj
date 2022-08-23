@@ -151,42 +151,42 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="source\application.cpp" />
-    <ClCompile Include="source\Core\ECS\componentArray.cpp" />
-    <ClCompile Include="source\Core\ECS\componentManager.cpp" />
-    <ClCompile Include="source\Core\ECS\engine.cpp" />
-    <ClCompile Include="source\Core\ECS\entityManager.cpp" />
-    <ClCompile Include="source\Core\ECS\system.cpp" />
-    <ClCompile Include="source\Core\ECS\systemManager.cpp" />
-    <ClCompile Include="source\Logic\Loader\textureHolder.cpp" />
-    <ClCompile Include="source\Logic\System\ecsInit.cpp" />
-    <ClCompile Include="source\world.cpp" />
-    <ClCompile Include="source\Logic\System\renderSystem.cpp" />
-    <ClCompile Include="source\Logic\System\rigidSystem.cpp" />
-    <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="src\source\application.cpp" />
+    <ClCompile Include="src\source\Core\ECS\componentArray.cpp" />
+    <ClCompile Include="src\source\Core\ECS\componentManager.cpp" />
+    <ClCompile Include="src\source\Core\ECS\engine.cpp" />
+    <ClCompile Include="src\source\Core\ECS\entityManager.cpp" />
+    <ClCompile Include="src\source\Core\ECS\system.cpp" />
+    <ClCompile Include="src\source\Core\ECS\systemManager.cpp" />
+    <ClCompile Include="src\source\Logic\Loader\textureHolder.cpp" />
+    <ClCompile Include="src\source\Logic\System\ecsInit.cpp" />
+    <ClCompile Include="src\source\world.cpp" />
+    <ClCompile Include="src\source\Logic\System\renderSystem.cpp" />
+    <ClCompile Include="src\source\Logic\System\rigidSystem.cpp" />
+    <ClCompile Include="src\source\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="header\application.hpp" />
-    <ClInclude Include="header\Core\coreAlias.hpp" />
-    <ClInclude Include="header\Core\ECS\componentArray.hpp" />
-    <ClInclude Include="header\Core\ECS\componentManager.hpp" />
-    <ClInclude Include="header\Core\ECS\componentType.hpp" />
-    <ClInclude Include="header\Core\ECS\engine.hpp" />
-    <ClInclude Include="header\Core\ECS\entity.hpp" />
-    <ClInclude Include="header\Core\ECS\entityManager.hpp" />
-    <ClInclude Include="header\Core\ECS\system.hpp" />
-    <ClInclude Include="header\Core\ECS\systemManager.hpp" />
-    <ClInclude Include="header\Core\ECS\value.hpp" />
-    <ClInclude Include="header\Core\resourceHolder.hpp" />
-    <ClInclude Include="header\Logic\Loader\textureHolder.hpp" />
-    <ClInclude Include="header\Logic\System\ecsInit.hpp" />
-    <ClInclude Include="header\world.hpp" />
-    <ClInclude Include="header\Logic\Component\componentList.hpp" />
-    <ClInclude Include="header\Logic\Component\render.hpp" />
-    <ClInclude Include="header\Logic\Component\rigidbody.hpp" />
-    <ClInclude Include="header\Logic\Component\transform.hpp" />
-    <ClInclude Include="header\Logic\System\renderSystem.hpp" />
-    <ClInclude Include="header\Logic\System\rigidSystem.hpp" />
+    <ClInclude Include="src\header\application.hpp" />
+    <ClInclude Include="src\header\Core\coreAlias.hpp" />
+    <ClInclude Include="src\header\Core\ECS\componentArray.hpp" />
+    <ClInclude Include="src\header\Core\ECS\componentManager.hpp" />
+    <ClInclude Include="src\header\Core\ECS\componentType.hpp" />
+    <ClInclude Include="src\header\Core\ECS\engine.hpp" />
+    <ClInclude Include="src\header\Core\ECS\entity.hpp" />
+    <ClInclude Include="src\header\Core\ECS\entityManager.hpp" />
+    <ClInclude Include="src\header\Core\ECS\system.hpp" />
+    <ClInclude Include="src\header\Core\ECS\systemManager.hpp" />
+    <ClInclude Include="src\header\Core\ECS\value.hpp" />
+    <ClInclude Include="src\header\Core\resourceHolder.hpp" />
+    <ClInclude Include="src\header\Logic\Loader\textureHolder.hpp" />
+    <ClInclude Include="src\header\Logic\System\ecsInit.hpp" />
+    <ClInclude Include="src\header\world.hpp" />
+    <ClInclude Include="src\header\Logic\Component\componentList.hpp" />
+    <ClInclude Include="src\header\Logic\Component\render.hpp" />
+    <ClInclude Include="src\header\Logic\Component\rigidbody.hpp" />
+    <ClInclude Include="src\header\Logic\Component\transform.hpp" />
+    <ClInclude Include="src\header\Logic\System\renderSystem.hpp" />
+    <ClInclude Include="src\header\Logic\System\rigidSystem.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

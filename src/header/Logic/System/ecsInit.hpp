@@ -1,6 +1,11 @@
 #ifndef STAY_LOGIC_SYSTEM_ECSINIT_HPP
 #define STAY_LOGIC_SYSTEM_ECSINIT_HPP
 
+/*
+	This header contains the function used for
+	ECS machine initialisation
+*/
+
 #include "../../Core/ECS/engine.hpp"
 #include "../../Core/coreAlias.hpp"
 #include "renderSystem.hpp"

@@ -3,13 +3,13 @@
 
 /*
 	Part of ECS implementation
-	This is a wrapper around 3 elements:
+	This is a wrapper around 3 core elements:
 	Entity - Component - System
-	It provides fuctionalities that will be used by the
-	game's classes such as Entity's creation, component 
-	access, manages systems .etc
+	It provides direct method to control the
+	whole structure such as create entity, 
+	access component, manage systems .etc
 	===============================================
-	Before using the engine:
+	Before using the engine the client must:
 	1. Register the components
 	2. Register systems and init them
 	3. Set Signatures of systems

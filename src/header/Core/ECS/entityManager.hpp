@@ -3,11 +3,12 @@
 
 /*
 	Part of ECS implementation
-	The class responsible for lifecycles and Signatures of Entities
+	This class is responsible for lifecycles 
+	and signatures of entities
 */
 
 #include <queue>
-#include<array>
+#include <array>
 
 #include "entity.hpp"
 

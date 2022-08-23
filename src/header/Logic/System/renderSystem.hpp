@@ -8,7 +8,7 @@
 	That limits a lot of things, though
 */
 
-#include <unordered_map>
+#include <map>
 
 #include "../../Core/coreAlias.hpp"
 #include "../../Core/ECS/engine.hpp"
@@ -27,7 +27,7 @@ namespace Logic
 		void batch_vertices();
 	private:
 		RTarget* m_target;
-		std::unordered_map<const sf::Texture*, sf::VertexArray> m_vertex_arr;
+		std::map<const sf::Texture*, sf::VertexArray> m_vertex_arr;
 	};
 }
 

@@ -15,108 +15,108 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\Core\ECS\entityManager.cpp">
+    <ClCompile Include="src\source\Core\ECS\entityManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\main.cpp">
+    <ClCompile Include="src\source\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Core\ECS\componentArray.cpp">
+    <ClCompile Include="src\source\Core\ECS\componentArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Core\ECS\componentManager.cpp">
+    <ClCompile Include="src\source\Core\ECS\componentManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Core\ECS\systemManager.cpp">
+    <ClCompile Include="src\source\Core\ECS\systemManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Core\ECS\system.cpp">
+    <ClCompile Include="src\source\Core\ECS\system.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Core\ECS\engine.cpp">
+    <ClCompile Include="src\source\Core\ECS\engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\application.cpp">
+    <ClCompile Include="src\source\application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\world.cpp">
+    <ClCompile Include="src\source\world.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Logic\System\renderSystem.cpp">
+    <ClCompile Include="src\source\Logic\System\renderSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Logic\System\rigidSystem.cpp">
+    <ClCompile Include="src\source\Logic\System\rigidSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Logic\System\ecsInit.cpp">
+    <ClCompile Include="src\source\Logic\System\ecsInit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Logic\Loader\textureHolder.cpp">
+    <ClCompile Include="src\source\Logic\Loader\textureHolder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="header\Core\ECS\entityManager.hpp">
+    <ClInclude Include="src\header\Core\ECS\entityManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Core\ECS\componentType.hpp">
+    <ClInclude Include="src\header\Core\ECS\componentType.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Core\ECS\entity.hpp">
+    <ClInclude Include="src\header\Core\ECS\entity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Core\ECS\componentArray.hpp">
+    <ClInclude Include="src\header\Core\ECS\componentArray.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Core\ECS\componentManager.hpp">
+    <ClInclude Include="src\header\Core\ECS\componentManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Core\ECS\value.hpp">
+    <ClInclude Include="src\header\Core\ECS\value.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Core\coreAlias.hpp">
+    <ClInclude Include="src\header\Core\coreAlias.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Core\ECS\system.hpp">
+    <ClInclude Include="src\header\Core\ECS\system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Core\ECS\systemManager.hpp">
+    <ClInclude Include="src\header\Core\ECS\systemManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Core\ECS\engine.hpp">
+    <ClInclude Include="src\header\Core\ECS\engine.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\application.hpp">
+    <ClInclude Include="src\header\application.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\world.hpp">
+    <ClInclude Include="src\header\world.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Logic\Component\transform.hpp">
+    <ClInclude Include="src\header\Logic\Component\transform.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Logic\Component\render.hpp">
+    <ClInclude Include="src\header\Logic\Component\render.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Logic\Component\rigidbody.hpp">
+    <ClInclude Include="src\header\Logic\Component\rigidbody.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Logic\System\renderSystem.hpp">
+    <ClInclude Include="src\header\Logic\System\renderSystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Logic\Component\componentList.hpp">
+    <ClInclude Include="src\header\Logic\Component\componentList.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Logic\System\rigidSystem.hpp">
+    <ClInclude Include="src\header\Logic\System\rigidSystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Logic\System\ecsInit.hpp">
+    <ClInclude Include="src\header\Logic\System\ecsInit.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Core\resourceHolder.hpp">
+    <ClInclude Include="src\header\Core\resourceHolder.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Logic\Loader\textureHolder.hpp">
+    <ClInclude Include="src\header\Logic\Loader\textureHolder.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
