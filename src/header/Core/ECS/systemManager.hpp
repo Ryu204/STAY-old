@@ -17,7 +17,7 @@
 	The core mechanism here is bitwise operations
 */
 
-#include <map>
+#include <unordered_map>
 #include <cassert>
 
 #include "system.hpp"
@@ -43,8 +43,8 @@ namespace ECS
 
 		void entity_destroyed(Entity e);
 	private:
-		std::map<const char*, SPtr<System>> m_systems;
-		std::map<const char*, Signature> m_Signatures;
+		std::unordered_map<const char*, SPtr<System>> m_systems;
+		std::unordered_map<const char*, Signature> m_Signatures;
 	};
 
 	template<typename T>

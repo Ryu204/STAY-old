@@ -8,6 +8,7 @@
 #include <random>
 
 #include "../../Core/ECS/engine.hpp"
+#include "../../../header/Logic/Component/componentList.hpp"
 
 namespace Collision
 {
@@ -18,9 +19,12 @@ namespace Collision
 		void update(sf::Time dt);
 	private:
 		// This function is called multiple times in update(dt)
-		void process(sf::Time dt);
+		void process(sf::Time dt, const std::vector<ECS::Entity>& list);
 	private:
 		std::mt19937 m_random;
+		std::unordered_map<ECS::Entity, Component::Collider*> m_colliders;
+		std::unordered_map<ECS::Entity, Component::Rigidbody*> m_rigids;
+		std::vector<ECS::Entity> m_list;
 	};
 }
 

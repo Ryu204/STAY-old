@@ -9,12 +9,12 @@
 	contains multiple types, we will make a common 
 	interface and template derived classes
 	===============================================
-	The array uses 2 maps to keep Components 
+	The array uses 2 unordered_maps to keep Components 
 	continued while maintaining indexing by Entity
 */
 
 #include <array>
-#include <map>
+#include <unordered_map>
 #include <cassert>
 
 #include "value.hpp"
@@ -43,8 +43,8 @@ namespace ECS
 		void entity_destroyed(Entity e) override;
 	private:
 		std::size_t m_real_size;
-		std::map<Entity, std::size_t> m_EnToIn;
-		std::map<std::size_t, Entity> m_InToE;
+		std::unordered_map<Entity, std::size_t> m_EnToIn;
+		std::unordered_map<std::size_t, Entity> m_InToE;
 		std::array<T, MAX_ENTITY> m_array;
 	};
 

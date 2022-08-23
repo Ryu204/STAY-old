@@ -8,7 +8,7 @@
 	No resource copy is made
 */
 
-#include <map>
+#include <unordered_map>
 #include <functional>
 #include <cassert>
 
@@ -24,7 +24,7 @@ public:
 	void insert(const T_key& key, UPtr<T_val> val);
 	void remove(const T_key& key);
 private:
-	std::map<T_key, UPtr<T_val>> m_container;
+	std::unordered_map<T_key, UPtr<T_val>> m_container;
 };
 
 template<typename T_key, typename T_val>

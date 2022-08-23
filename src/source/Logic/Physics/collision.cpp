@@ -84,9 +84,21 @@ namespace Collision
         assert(m1 > 0 && m2 > 0 && "Mass must be positive");
 
         float u1 = v1, u2 = v2;
-
-        v1 = (m1 * u1 + m2 * u2 + e * m2 * (u2 - u1)) / (m1 + m2);
-        v2 = (m1 * u1 + m2 * u2 + e * m1 * (u1 - u2)) / (m1 + m2);
+        if (m1 == INF && m2 == INF)
+            return;
+        else if (m1 == INF)
+        {
+            v2 = u1 + e * (u1 - u2);
+        }
+        else if (m2 == INF)
+        {
+            v1 = u2 + e * (u2 - u1);
+        }
+        else
+        {
+            v1 = (m1 * u1 + m2 * u2 + e * m2 * (u2 - u1)) / (m1 + m2);
+            v2 = (m1 * u1 + m2 * u2 + e * m1 * (u1 - u2)) / (m1 + m2);
+        }
     }
 
     bool entity_and_entity(const sf::FloatRect& e1, sf::Vector2f path1, const sf::FloatRect& e2, sf::Vector2f path2, float& time, sf::Vector2i& normal)
@@ -123,17 +135,27 @@ namespace Collision
         float n2 = Utilise::dot_product(e2.velocity, sf::Vector2f{ normal });
 
         //std::cout << "Time: " << time << '\n';
+        if (e1.fixed && e2.fixed)
+            return;
+        else if (e1.fixed)
+            e1.mass = INF;
+        else if (e2.fixed)
+            e2.mass = INF;
 
         one_dimension(n1, n2, e1.mass, e2.mass, 0.f);
         if (normal == DOWN)
         {
-            e1.velocity.y = n1;
-            e2.velocity.y = n2;
+            if (!e1.fixed)
+                e1.velocity.y = n1;
+            if (!e2.fixed)
+                e2.velocity.y = n2;
         }
         else
         {
-            e1.velocity.x = n1;
-            e2.velocity.x = n2;
+            if (!e1.fixed)
+                e1.velocity.x = n1;
+            if (!e2.fixed)
+                e2.velocity.x = n2;
         }
     }
 }

@@ -24,6 +24,7 @@ namespace Collision
     // Global constants
     const sf::Vector2i DOWN = sf::Vector2i(0, 1);
     const sf::Vector2i RIGHT = sf::Vector2i(1, 0);
+    const float INF = std::numeric_limits<float>::infinity();
     // ==============================================
 
     // Check if a point is inside a rectangle (not on)

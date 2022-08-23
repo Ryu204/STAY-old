@@ -54,8 +54,8 @@ namespace ECS
 		template<typename T>
 		ComponentArray<T>& get_array();
 	private:
-		std::map<const char*, SPtr<IComponentArray>> m_arrays;
-		std::map<const char*, ComponentType> m_type_list;
+		std::unordered_map<const char*, SPtr<IComponentArray>> m_arrays;
+		std::unordered_map<const char*, ComponentType> m_type_list;
 		ComponentType m_available_type;
 	};
 
