@@ -25,10 +25,9 @@ namespace Collision
 			m_rigids.emplace(e, &m_engine->get_component<Component::Rigidbody>(e));
 		}
 
-		std::shuffle(m_list.rbegin(), m_list.rend(), m_random);
 		for (int t = 1; t <= 10; t++)
 		{
-			std::reverse(m_list.begin(), m_list.end());
+			std::shuffle(m_list.rbegin(), m_list.rend(), m_random);
 			for (int i = 1; i <= 5; i++)
 			{
 				process(dt, m_list);
@@ -45,14 +44,14 @@ namespace Collision
 			auto& cole = *m_colliders[e];
 			auto& rge = *m_rigids[e];
 			for (auto f : list)
-			if (e < f)
+			if (e != f)
 			{
 				auto& rgf = *m_rigids[f];
 				auto& colf = *m_colliders[f];
-				if (Collision::entity_and_entity(cole.rect, rge.velocity * dt.asSeconds(), colf.rect, rgf.velocity * dt.asSeconds(), time, normal))
+				if (Collision::entity_and_entity(cole.vrect, rge.velocity * dt.asSeconds(), colf.vrect, rgf.velocity * dt.asSeconds(), time, normal))
 				{
 					//std::cout << "1";
-					resolve(rge, rgf, time, normal);
+					resolve(rge, rgf, time, normal, std::max(cole.cor, colf.cor));
 				}
 			}
 		}

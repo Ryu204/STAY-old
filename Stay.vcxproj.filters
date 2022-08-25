@@ -63,6 +63,9 @@
     <ClCompile Include="src\source\Logic\System\positionSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\source\Logic\System\controlSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\header\Core\ECS\entityManager.hpp">
@@ -141,6 +144,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\header\Logic\System\positionSystem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\Logic\Component\control.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\Logic\System\controlSystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

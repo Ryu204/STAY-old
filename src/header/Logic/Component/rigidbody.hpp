@@ -14,6 +14,7 @@ namespace Component
 		sf::Vector2f velocity = sf::Vector2f();
 		sf::Vector2f acceleration = sf::Vector2f();
 		float mass = 100.f;
+		float friction = 1.f;
 		bool fixed = true;
 	};
 }

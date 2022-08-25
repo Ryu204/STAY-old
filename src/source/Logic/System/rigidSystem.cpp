@@ -12,11 +12,11 @@ namespace Logic
 	{
 		for (auto e : m_entities)
 		{
-			auto& tf = m_engine->get_component<Component::Transform>(e);
 			auto& rg = m_engine->get_component<Component::Rigidbody>(e);
 
 			if (!rg.fixed)
 				rg.velocity += rg.acceleration * dt.asSeconds();
+			rg.velocity *= std::pow(rg.friction, dt.asSeconds());
 		}
 	}
 }

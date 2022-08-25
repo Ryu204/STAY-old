@@ -23,6 +23,7 @@ private:
 	SPtr<Logic::RigidSystem> m_rigid;
 	SPtr<Collision::CollisionSystem> m_collider;
 	SPtr<Logic::PositionSystem> m_positioner;
+	SPtr<Logic::ControlSystem> m_controller;
 
 	TextureHolder m_textures;
 };

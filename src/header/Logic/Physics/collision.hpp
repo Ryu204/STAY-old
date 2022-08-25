@@ -16,6 +16,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "../Component/componentList.hpp"
+#include "../System/ecsInit.hpp"
 
 namespace Collision
 {
@@ -25,6 +26,7 @@ namespace Collision
     const sf::Vector2i DOWN = sf::Vector2i(0, 1);
     const sf::Vector2i RIGHT = sf::Vector2i(1, 0);
     const float INF = std::numeric_limits<float>::infinity();
+    const float eps = 0.001f;
     // ==============================================
 
     // Check if a point is inside a rectangle (not on)
@@ -52,7 +54,7 @@ namespace Collision
     bool entity_and_entity(const sf::FloatRect& e1, sf::Vector2f path1, const sf::FloatRect& e2, sf::Vector2f path2, float& time, sf::Vector2i& normal);
 
     // Resolve elastic collision
-    void resolve(Component::Rigidbody& e1, Component::Rigidbody& e2, float time, sf::Vector2i normal);
+    void resolve(Component::Rigidbody& e1, Component::Rigidbody& e2, float time, sf::Vector2i normal, float cor);
 }
 
 #endif // !STAY_LOGIC_PHYSICS_COLLISION_HPP

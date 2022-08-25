@@ -22,7 +22,14 @@ namespace Logic
 			}
 
 			if (m_engine->has_component<Component::Collider>(e))
-				Utilise::align(m_engine->get_component<Component::Collider>(e).rect, tf.rect);
+			{
+				auto& col = m_engine->get_component<Component::Collider>(e);
+				Utilise::align(col.rect, tf.rect);
+				col.vrect.left = std::floor(col.rect.left);
+				col.vrect.top = std::floor(col.rect.top);
+				col.vrect.width = std::ceil(col.rect.left + col.rect.width - col.vrect.left);
+				col.vrect.height = std::ceil(col.rect.top + col.rect.height - col.vrect.top);
+			}
 		}
 	}
 }

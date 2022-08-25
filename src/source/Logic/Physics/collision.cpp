@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <cassert>
 #include <iostream>
+#include <iomanip>
 
 namespace Collision
 {
@@ -40,6 +41,9 @@ namespace Collision
         {
             near.x = (target.left - root.x) / path.x;
             far.x = (target.left + target.width - root.x) / path.x;
+
+            if (near.x > far.x)
+                std::swap(near.x, far.x);
         }
 
         if (path.y == 0.f)
@@ -51,16 +55,14 @@ namespace Collision
         {
             near.y = (target.top - root.y) / path.y;
             far.y = (target.top + target.height - root.y) / path.y;
+
+            if (near.y > far.y)
+                std::swap(near.y, far.y);
         }
 
-        if (near.x > far.x)
-            std::swap(near.x, far.x);
-        if (near.y > far.y)
-            std::swap(near.y, far.y);
-
-        if (far.x <= 0 || far.y <= 0)
+        if (std::max(far.x, far.y) <= -eps)
             return false;
-        if (near.x >= 1 || near.y >= 1)
+        if (std::min(near.x, near.y) >= 1 + eps)
             return false;
         if (near.x >= far.y || near.y >= far.x)
             return false;
@@ -129,33 +131,34 @@ namespace Collision
         }
     }
 
-    void resolve(Component::Rigidbody& e1, Component::Rigidbody& e2, float time, sf::Vector2i normal)
+    void resolve(Component::Rigidbody& e1, Component::Rigidbody& e2, float time, sf::Vector2i normal, float cor)
     {
         float n1 = Utilise::dot_product(e1.velocity, sf::Vector2f{ normal });
         float n2 = Utilise::dot_product(e2.velocity, sf::Vector2f{ normal });
 
-        //std::cout << "Time: " << time << '\n';
-        if (e1.fixed && e2.fixed)
-            return;
-        else if (e1.fixed)
-            e1.mass = INF;
-        else if (e2.fixed)
-            e2.mass = INF;
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::P))
+            std::cout << std::setprecision(10) << time << '\n';
 
-        one_dimension(n1, n2, e1.mass, e2.mass, 0.f);
+        if (e1.fixed)
+            e1.mass = INF;
+        if (e2.fixed)
+            e2.mass = INF;
+        
+        float esl = 0.0f;
+        one_dimension(n1, n2, e1.mass, e2.mass, cor);
         if (normal == DOWN)
         {
             if (!e1.fixed)
-                e1.velocity.y = n1;
+                e1.velocity.y = n1 * (1.f + esl);
             if (!e2.fixed)
-                e2.velocity.y = n2;
+                e2.velocity.y = n2 * (1.f + esl);
         }
-        else
+        else 
         {
             if (!e1.fixed)
-                e1.velocity.x = n1;
+                e1.velocity.x = n1 * (1.f + esl);
             if (!e2.fixed)
-                e2.velocity.x = n2;
+                e2.velocity.x = n2 * (1.f + esl);
         }
     }
 }

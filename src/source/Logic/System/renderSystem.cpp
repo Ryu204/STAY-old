@@ -44,10 +44,19 @@ namespace Logic
             auto const& tf = m_engine->get_component<Component::Transform>(e);
             sf::Vertex v[4];
             // Init rect position
+            // Realease version
             v[0].position = sf::Vector2f(0.1f + std::floor(tf.rect.left), 0.1f + std::floor(tf.rect.top));
             v[1].position = sf::Vector2f(0.1f + std::floor(tf.rect.left + tf.rect.width), 0.1f + std::floor(tf.rect.top));
             v[2].position = sf::Vector2f(0.1f + std::floor(tf.rect.left + tf.rect.width), 0.1f + std::floor(tf.rect.top + tf.rect.height));
             v[3].position = sf::Vector2f(0.1f + std::floor(tf.rect.left), 0.1f + std::floor(tf.rect.top + tf.rect.height));
+            
+           /* // Debug version
+           v[0].position = sf::Vector2f(tf.rect.left, tf.rect.top);
+           v[1].position = sf::Vector2f(tf.rect.left + tf.rect.width, tf.rect.top);
+           v[2].position = sf::Vector2f(tf.rect.left + tf.rect.width, tf.rect.top + tf.rect.height);
+           v[3].position = sf::Vector2f(tf.rect.left, tf.rect.top + tf.rect.height);
+           */
+           
             // Rotation and Scale
             sf::Transformable trans;
             trans.setOrigin(tf.rect.left + tf.rect.width / 2, tf.rect.top + tf.rect.height / 2);
