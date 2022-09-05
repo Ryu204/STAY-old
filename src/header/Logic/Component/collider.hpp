@@ -14,9 +14,15 @@ namespace Component
 {
 	struct Collider
 	{
-		float cor = 0.f; // coefficient of resitution
+		enum Tag
+		{
+			Platform,
+			Player,
+			None
+		};
+
 		sf::FloatRect rect = sf::FloatRect();
-		sf::FloatRect vrect = rect;
+		Tag tag = None;
 	};
 }
 

@@ -29,7 +29,7 @@ namespace Collision
         return bounds.intersects(target);
     }
 
-    bool vector_and_rect(sf::Vector2f root, sf::Vector2f path, const sf::FloatRect& target, float& time, sf::Vector2i& normal)
+    bool vector_and_rect(sf::Vector2f root, sf::Vector2f path, const sf::FloatRect& target, float& time, sf::Vector2f& normal)
     {
         sf::Vector2f near, far;
         if (path.x == 0.f)
@@ -60,9 +60,9 @@ namespace Collision
                 std::swap(near.y, far.y);
         }
 
-        if (std::max(far.x, far.y) <= -eps)
+        if (far.x <= 0.f && far.y <= 0.f)
             return false;
-        if (std::min(near.x, near.y) >= 1 + eps)
+        if (near.x >= 1.f && near.y >= 1.f)
             return false;
         if (near.x >= far.y || near.y >= far.x)
             return false;
@@ -70,57 +70,37 @@ namespace Collision
         if (near.x >= near.y)
         {
             time = near.x;
-            normal = RIGHT;
+            if (path.x < 0)
+                normal = RIGHT;
+            else
+                normal = LEFT;
         }
         else
         {
             time = near.y;
-            normal = DOWN;
+            if (path.y < 0)
+                normal = DOWN;
+            else
+                normal = UP;
         }
         
         return true;
     }
 
-    void one_dimension(float& v1, float& v2, float m1, float m2, float e)
+    bool entity_and_entity(const sf::FloatRect& mover, sf::Vector2f path, const sf::FloatRect& target, float& time, sf::Vector2f& normal)
     {
-        assert(m1 > 0 && m2 > 0 && "Mass must be positive");
+        sf::FloatRect boundsM = mover, boundsT = target;
 
-        float u1 = v1, u2 = v2;
-        if (m1 == INF && m2 == INF)
-            return;
-        else if (m1 == INF)
-        {
-            v2 = u1 + e * (u1 - u2);
-        }
-        else if (m2 == INF)
-        {
-            v1 = u2 + e * (u2 - u1);
-        }
-        else
-        {
-            v1 = (m1 * u1 + m2 * u2 + e * m2 * (u2 - u1)) / (m1 + m2);
-            v2 = (m1 * u1 + m2 * u2 + e * m1 * (u1 - u2)) / (m1 + m2);
-        }
-    }
-
-    bool entity_and_entity(const sf::FloatRect& e1, sf::Vector2f path1, const sf::FloatRect& e2, sf::Vector2f path2, float& time, sf::Vector2i& normal)
-    {
-        // We fix e2, then increase it sizes by half e1 each dimension
-        // After that we consider the system of interest including
-        // 2 objects
-
-        sf::FloatRect boundsM = e1, boundsT = e2;
-
-        if (broad_phase(boundsM, path1 - path2, boundsT))
+        if (broad_phase(boundsM, path, boundsT))
         {
             boundsT.left -= boundsM.width / 2.0f;
             boundsT.top -= boundsM.height / 2.0f;
             boundsT.width += boundsM.width;
             boundsT.height += boundsM.height;
 
-            sf::Vector2f root(e1.left + e1.width / 2.0f, e1.top + e1.height / 2.0f);
+            sf::Vector2f root(mover.left + mover.width / 2.0f, mover.top + mover.height / 2.0f);
 
-            if (vector_and_rect(root, path1 - path2, boundsT, time, normal))
+            if (vector_and_rect(root, path, boundsT, time, normal))
                 return true;
             else
                 return false;
@@ -131,34 +111,9 @@ namespace Collision
         }
     }
 
-    void resolve(Component::Rigidbody& e1, Component::Rigidbody& e2, float time, sf::Vector2i normal, float cor)
+    void resolve(Component::Rigidbody& mover, float time, sf::Vector2f normal)
     {
-        float n1 = Utilise::dot_product(e1.velocity, sf::Vector2f{ normal });
-        float n2 = Utilise::dot_product(e2.velocity, sf::Vector2f{ normal });
-
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::P))
-            std::cout << std::setprecision(10) << time << '\n';
-
-        if (e1.fixed)
-            e1.mass = INF;
-        if (e2.fixed)
-            e2.mass = INF;
-        
-        float esl = 0.0f;
-        one_dimension(n1, n2, e1.mass, e2.mass, cor);
-        if (normal == DOWN)
-        {
-            if (!e1.fixed)
-                e1.velocity.y = n1 * (1.f + esl);
-            if (!e2.fixed)
-                e2.velocity.y = n2 * (1.f + esl);
-        }
-        else 
-        {
-            if (!e1.fixed)
-                e1.velocity.x = n1 * (1.f + esl);
-            if (!e2.fixed)
-                e2.velocity.x = n2 * (1.f + esl);
-        }
+        mover.velocity.x += (abs(mover.velocity.x) + 10.f) * normal.x * (1.f - time);
+        mover.velocity.y += (abs(mover.velocity.y) + 10.f) * normal.y * (1.f - time);
     }
 }

@@ -11,47 +11,38 @@ namespace Collision
 {
 	CollisionSystem::CollisionSystem(ECS::Engine* engine)
 		: ECS::System(engine)
-	{
-		m_random.seed(static_cast<unsigned int>(time(NULL)));
-	}
+	{ }
 
 	void CollisionSystem::update(sf::Time dt)
 	{
-		m_list.clear(); m_colliders.clear(); m_rigids.clear();
+		ECS::Entity player = -1;
+		m_colliders.clear();
 		for (auto e : m_entities)
 		{
-			m_list.push_back(e);
-			m_colliders.emplace(e, &m_engine->get_component<Component::Collider>(e));
-			m_rigids.emplace(e, &m_engine->get_component<Component::Rigidbody>(e));
+			auto& col = m_engine->get_component<Component::Collider>(e);
+			if (col.tag == Component::Collider::Player)
+				player = e;
+			m_colliders.emplace(e, &col);
 		}
 
-		for (int t = 1; t <= 10; t++)
+		// If player is alive
+		if (player != -1)
 		{
-			std::shuffle(m_list.rbegin(), m_list.rend(), m_random);
-			for (int i = 1; i <= 5; i++)
-			{
-				process(dt, m_list);
-			}
-		}
-	}
+			// Check for rigidbody 
+			assert(m_engine->has_component<Component::Rigidbody>(player) && "Player doesn't have Rigidbody");
 
-	void CollisionSystem::process(sf::Time dt, const std::vector<ECS::Entity>& list)
-	{
-		float time = 0;
-		sf::Vector2i normal;
-		for (auto e : list)
-		{
-			auto& cole = *m_colliders[e];
-			auto& rge = *m_rigids[e];
-			for (auto f : list)
-			if (e != f)
+			auto& rg = m_engine->get_component<Component::Rigidbody>(player);
+			for (auto e : m_entities)
 			{
-				auto& rgf = *m_rigids[f];
-				auto& colf = *m_colliders[f];
-				if (Collision::entity_and_entity(cole.vrect, rge.velocity * dt.asSeconds(), colf.vrect, rgf.velocity * dt.asSeconds(), time, normal))
+				if (e != player)
 				{
-					//std::cout << "1";
-					resolve(rge, rgf, time, normal, std::max(cole.cor, colf.cor));
+					sf::Vector2f normal;
+					float time = 0.f;
+					if (Collision::entity_and_entity(m_colliders[player]->rect, rg.velocity * dt.asSeconds(), m_colliders[e]->rect, time, normal))
+					{
+						// std::cout << time << '\n';
+						Collision::resolve(rg, time, normal);
+					}
 				}
 			}
 		}

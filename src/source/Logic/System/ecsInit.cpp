@@ -37,7 +37,7 @@ namespace ECS
 		s = engine->generate_Signature<Component::Rigidbody>();
 		engine->set_system_Signature<Logic::RigidSystem>(s);
 
-		s = engine->generate_Signature<Component::Rigidbody, Component::Collider>();
+		s = engine->generate_Signature<Component::Collider>();
 		engine->set_system_Signature<Collision::CollisionSystem>(s);
 		
 		s = engine->generate_Signature<Component::Transform, Component::Rigidbody>();

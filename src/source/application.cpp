@@ -2,7 +2,7 @@
 
 Application::Application()
 	: m_window(sf::VideoMode(600, 600), "STAY")
-	, m_update_interval(sf::seconds(1.f/60))
+	, m_update_interval(sf::seconds(1.f/120))
 	, m_world(&m_window)
 { 
 	m_window.setKeyRepeatEnabled(false);
@@ -51,7 +51,7 @@ void Application::update(sf::Time dt)
 
 void Application::render()
 {
-	m_window.clear(sf::Color::White);
+	m_window.clear();
 	m_world.render();
 	m_window.display();
 }

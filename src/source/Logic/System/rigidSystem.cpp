@@ -14,9 +14,7 @@ namespace Logic
 		{
 			auto& rg = m_engine->get_component<Component::Rigidbody>(e);
 
-			if (!rg.fixed)
-				rg.velocity += rg.acceleration * dt.asSeconds();
-			rg.velocity *= std::pow(rg.friction, dt.asSeconds());
+			rg.velocity += rg.acceleration * dt.asSeconds();
 		}
 	}
 }

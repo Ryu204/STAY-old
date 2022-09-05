@@ -6,6 +6,7 @@
 */
 
 #include <SFML/Graphics.hpp>
+
 #include<memory>
 
 template<typename T>

@@ -5,8 +5,7 @@
     A collision-related functions collection
     ===============================================
     Collision detection: swept AABB
-    Collision resolution: cut down velocity + 2d 
-    elastic collision
+    Collision resolution: only resolve dynamic vs static
     ===============================================
     IMPORTANT NOTE !!!
     It's necessary that entities don't intersect before the update
@@ -23,10 +22,11 @@ namespace Collision
 
     // ==============================================
     // Global constants
-    const sf::Vector2i DOWN = sf::Vector2i(0, 1);
-    const sf::Vector2i RIGHT = sf::Vector2i(1, 0);
+    const sf::Vector2f DOWN = sf::Vector2f(0.f, 1.f);
+    const sf::Vector2f RIGHT = sf::Vector2f(1.f, 0.f);
+    const sf::Vector2f UP = sf::Vector2f(0.f, -1.f);
+    const sf::Vector2f LEFT = sf::Vector2f(-1.f, 0.f);
     const float INF = std::numeric_limits<float>::infinity();
-    const float eps = 0.001f;
     // ==============================================
 
     // Check if a point is inside a rectangle (not on)
@@ -41,20 +41,13 @@ namespace Collision
     // Check if vector intersects a rectangle
     // time is how much we have to scale path to meet the rect
     // normal is the normal vector of the collision surface
-    bool vector_and_rect(sf::Vector2f root, sf::Vector2f path, const sf::FloatRect& target, float& time, sf::Vector2i& normal);
-
-    // one dimension elastic collision
-    // v1, v2: initial scalar velocity
-    // m1, m2: mass
-    // e: coefficient of resistution
-    // This function modifies v1 and v2
-    void one_dimension(float& v1, float& v2, float m1, float m2, float e);
+    bool vector_and_rect(sf::Vector2f root, sf::Vector2f path, const sf::FloatRect& target, float& time, sf::Vector2f& normal);
 
     // Check if 2 entity will collide and return according time and normal
-    bool entity_and_entity(const sf::FloatRect& e1, sf::Vector2f path1, const sf::FloatRect& e2, sf::Vector2f path2, float& time, sf::Vector2i& normal);
+    bool entity_and_entity(const sf::FloatRect& mover, sf::Vector2f path, const sf::FloatRect& target, float& time, sf::Vector2f& normal);
 
     // Resolve elastic collision
-    void resolve(Component::Rigidbody& e1, Component::Rigidbody& e2, float time, sf::Vector2i normal, float cor);
+    void resolve(Component::Rigidbody& mover, float time, sf::Vector2f normal);
 }
 
 #endif // !STAY_LOGIC_PHYSICS_COLLISION_HPP

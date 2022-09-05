@@ -16,26 +16,18 @@ World::World(RWindow* window)
 	ECS::Entity e = m_engine.create_entity();
 	m_engine.add_component(e, Component::Render{ txtr, sf::IntRect(0, 0, 10, 10), sf::Color::Yellow});
 	m_engine.add_component(e, Component::Transform{ sf::FloatRect{0, 400, 600, 5} });
-	m_engine.add_component(e, Component::Rigidbody{ sf::Vector2f(), sf::Vector2f(), 99000.f, 1.f, true});
-	m_engine.add_component(e, Component::Collider{ 0.f, sf::FloatRect{0, 400, 600, 5} });
+	m_engine.add_component(e, Component::Collider{ sf::FloatRect{0, 400, 600, 5} });
 
 	ECS::Entity e1 = m_engine.create_entity();
 	m_engine.add_component(e1, Component::Render{ txtr, sf::IntRect(0, 0, 10, 10), sf::Color::Yellow });
-	m_engine.add_component(e1, Component::Transform{ sf::FloatRect{0, -300, 600, 200} });
-	m_engine.add_component(e1, Component::Rigidbody{ sf::Vector2f(), sf::Vector2f(0, 15), 600.f, 1.f, true });
-	m_engine.add_component(e1, Component::Collider{ 0.f, sf::FloatRect{0, -300, 600, 200} });
+	m_engine.add_component(e1, Component::Transform{ sf::FloatRect{0, 100, 600, 10} });
+	m_engine.add_component(e1, Component::Collider{ sf::FloatRect{0, 100, 600, 10} });
 
 	e = m_engine.create_entity();
 	m_engine.add_component(e, Component::Render{ txtr, sf::IntRect(0, 0, 10, 10), sf::Color::White });
-	m_engine.add_component(e, Component::Transform{ sf::FloatRect{ 300.f, 0.f, 50.f, 50.f } });
-	m_engine.add_component(e, Component::Rigidbody{ sf::Vector2f(), sf::Vector2f(0, 1000), 10.f, 0.1f, false });
-	m_engine.add_component(e, Component::Collider{ 0.0f, sf::FloatRect{ 300.f, 0.f, 50.f, 50.f },});
-
-	e = m_engine.create_entity();
-	m_engine.add_component(e, Component::Render{ txtr, sf::IntRect(0, 0, 10, 10), sf::Color::White });
-	m_engine.add_component(e, Component::Transform{ sf::FloatRect{ 0.f, 0.f, 50.f, 50.f } });
-	m_engine.add_component(e, Component::Rigidbody{ sf::Vector2f(), sf::Vector2f(), 10.f, 1.f, false });
-	m_engine.add_component(e, Component::Collider{ 0.f, sf::FloatRect{ 0.f, 0.f, 50.f, 50.f },});
+	m_engine.add_component(e, Component::Transform{ sf::FloatRect{ 0.f, 350.f, 50.f, 50.f } });
+	m_engine.add_component(e, Component::Rigidbody{ sf::Vector2f(), sf::Vector2f() });
+	m_engine.add_component(e, Component::Collider{ sf::FloatRect{ 0.f, 350.f, 50.f, 50.f }, Component::Collider::Player });
 	m_engine.add_component(e, Component::Control{ });
 }
 
