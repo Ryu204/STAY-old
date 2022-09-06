@@ -3,8 +3,8 @@
 
 /*
 	Part of ECS implementation
-	This class manages different type of ComponentArray 
-	and provide methods to access data of each type
+	This class manages different types of ComponentArray 
+	and provides methods to access data of each type
 	===============================================
 	Before using any type of component, the client must
 	first register the template type to the manager
@@ -13,8 +13,7 @@
 	===============================================
 	Each array is identified by their template type
 	via the keyword typeid(template_name).name()
-	Internally, the type is reduced to an interger
-	by m_type_list
+	Internally, the type is an interger in m_type_list
 */
 
 #include <typeinfo>

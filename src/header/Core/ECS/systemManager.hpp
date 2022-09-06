@@ -3,18 +3,14 @@
 
 /*
 	Part of ECS implementation
-	This class manages registration and match Entities to 
-	system of corresponding Signature
+	This class registers and matches entities to 
+	systems of corresponding signature
 	===============================================
 	Before using any system, the client must register the
 	system via method: 
 	SystemManager::register_system<T>()
 	===============================================
-	Which every Entity has all the required Components of
-	a specific system will belong to that system
-	One Entity can belong to many systems
-	===============================================
-	The core mechanism here is bitwise operations
+	Key matching mechanism using bitwise operations
 */
 
 #include <unordered_map>

@@ -2,8 +2,7 @@
 #define STAY_LOGIC_LOADER_TEXTUREHOLDER_HPP
 
 /*
-	sf::Texture specialization for 
-	ResourceHolder template class
+	Texture holder
 */
 
 #include <SFML/Graphics.hpp>

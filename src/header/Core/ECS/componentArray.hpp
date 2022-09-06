@@ -3,7 +3,7 @@
 
 /*
 	Part of ECS implementation
-	This class is what actually contains Component
+	This class contains component data of one type
 	===============================================
 	Since we need a ComponentManager class that 
 	contains multiple types, we will make a common 

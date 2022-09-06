@@ -19,7 +19,7 @@ namespace ECS
 	public:
 		System(Engine* engine);
 		virtual ~System() = default;
-		// Derived classes will manipulate entities set and the engine
+		// Derived classes will manipulate entities set and the engine pointer
 		std::set<Entity> m_entities;
 	protected:
 		Engine* m_engine;
