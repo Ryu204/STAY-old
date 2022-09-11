@@ -158,6 +158,8 @@
     <ClCompile Include="src\source\Core\ECS\entityManager.cpp" />
     <ClCompile Include="src\source\Core\ECS\system.cpp" />
     <ClCompile Include="src\source\Core\ECS\systemManager.cpp" />
+    <ClCompile Include="src\source\Logic\Loader\mapLoader.cpp" />
+    <ClCompile Include="src\source\Logic\Loader\preset.cpp" />
     <ClCompile Include="src\source\Logic\Loader\textureHolder.cpp" />
     <ClCompile Include="src\source\Logic\Physics\collision.cpp" />
     <ClCompile Include="src\source\Logic\System\collisionSystem.cpp" />
@@ -185,6 +187,8 @@
     <ClInclude Include="src\header\Helper\utilise.hpp" />
     <ClInclude Include="src\header\Logic\Component\collider.hpp" />
     <ClInclude Include="src\header\Logic\Component\control.hpp" />
+    <ClInclude Include="src\header\Logic\Loader\mapLoader.hpp" />
+    <ClInclude Include="src\header\Logic\Loader\preset.hpp" />
     <ClInclude Include="src\header\Logic\Loader\textureHolder.hpp" />
     <ClInclude Include="src\header\Logic\Physics\collision.hpp" />
     <ClInclude Include="src\header\Logic\System\collisionSystem.hpp" />

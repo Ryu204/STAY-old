@@ -7,6 +7,7 @@
 */
 
 #include "Logic/System/ecsInit.hpp"
+#include "Logic/Loader/mapLoader.hpp"
 
 class World
 {
@@ -26,6 +27,7 @@ private:
 	SPtr<Logic::ControlSystem> m_controller;
 
 	TextureHolder m_textures;
+	Game::MapLoader m_map_loader;
 };
 
 #endif // !STAY_WORLD_HPP

@@ -21,6 +21,8 @@ namespace ECS
 		renderer = engine->register_system<Logic::RenderSystem>();
 		renderer->init(rtar);
 		renderer->register_texture(&txtrs->get("test"));
+		renderer->register_texture(&txtrs->get("Mossy"));
+		renderer->register_texture(&txtrs->get("Cat"));
 
 		rigid = engine->register_system<Logic::RigidSystem>();
 
