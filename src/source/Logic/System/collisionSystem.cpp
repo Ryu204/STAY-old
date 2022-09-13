@@ -42,6 +42,9 @@ namespace Collision
 					{
 						// std::cout << time << '\n';
 						Collision::resolve(rg, time, normal);
+						// check if collide with platform underneath
+						if (normal.y == -1)
+							m_engine->get_component<Component::Control>(player).jumped = false;
 					}
 				}
 			}

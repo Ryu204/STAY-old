@@ -15,7 +15,7 @@ namespace Game
 		}
 	}
 
-	void MapLoader::load_to_engine(ECS::Engine* engine, TextureHolder* textures, const std::string& level) const
+	void MapLoader::load_to_engine(ECS::Engine* engine, TextureHolder* textures, Logic::CameraController* cam, const std::string& level) const
 	{
 		try
 		{
@@ -34,7 +34,6 @@ namespace Game
 						Preset::create_collider(engine, sf::FloatRect{ (float)pos.x, (float)pos.y, (float)size.x, (float)size.y });
 					}
 				}
-
 				else if (name == "Tile")
 				{
 					const auto& size = layer.getCellSize();
@@ -47,7 +46,6 @@ namespace Game
 							texture, sf::IntRect{ trect.x, trect.y, trect.width, trect.height });
 					}
 				}
-
 				else if (name == "Player")
 				{
 					const auto& player = layer.getEntitiesByName("PlayerInit");
@@ -56,7 +54,7 @@ namespace Game
 					const auto& pos = entity.getPosition();
 					const auto& size = entity.getSize();
 					sf::Texture* texture = &textures->get(entity.getField<std::string>("TextureID").value());
-					const auto& trect = sf::IntRect(0, 0, 128, 128);
+					const auto& trect = sf::IntRect(0, 0, 64, 64);
 					const auto& collider = entity.getArrayField<float>("CollisionRect");
 
 					Preset::create_player(engine, sf::FloatRect{(float)pos.x, (float)pos.y, (float)size.x, (float)size.y},
@@ -65,6 +63,20 @@ namespace Game
 						entity.getField<float>("Gravity").value(),
 						entity.getField<float>("Jump").value());
 				}
+				else if (name == "CameraRegion")
+				{
+					for (const auto& entity : layer.allEntities())
+					{
+						const auto& pos = entity.getPosition();
+						const auto& size = entity.getSize();
+						cam->add_region(sf::FloatRect{ (float)pos.x, (float)pos.y, (float)size.x, (float)size.y });
+					}
+				}
+				else
+				{
+					throw std::runtime_error("Invalid layer name: " + name + '\n');
+				}
+
 			}
 		}
 		catch (std::exception& e)

@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\header\Logic\System\cameraController.cpp" />
     <ClCompile Include="src\source\application.cpp" />
     <ClCompile Include="src\source\Core\ECS\componentArray.cpp" />
     <ClCompile Include="src\source\Core\ECS\componentManager.cpp" />
@@ -191,6 +192,7 @@
     <ClInclude Include="src\header\Logic\Loader\preset.hpp" />
     <ClInclude Include="src\header\Logic\Loader\textureHolder.hpp" />
     <ClInclude Include="src\header\Logic\Physics\collision.hpp" />
+    <ClInclude Include="src\header\Logic\System\cameraController.hpp" />
     <ClInclude Include="src\header\Logic\System\collisionSystem.hpp" />
     <ClInclude Include="src\header\Logic\System\controlSystem.hpp" />
     <ClInclude Include="src\header\Logic\System\ecsInit.hpp" />

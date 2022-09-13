@@ -24,6 +24,6 @@ namespace Preset
 		engine->add_component(en, Component::Rigidbody{ });
 		engine->add_component(en, Component::Collider{ collider_rect, Component::Collider::Player });
 		engine->add_component(en, Component::Render{ texture, texture_rect });
-		engine->add_component(en, Component::Control{ speed, gravity, jump_height });
+		engine->add_component(en, Component::Control{ speed, gravity, jump_height, false });
 	}
 }

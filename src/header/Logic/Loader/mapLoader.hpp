@@ -9,6 +9,7 @@
 
 #include "../System/ecsInit.hpp"
 #include "textureHolder.hpp"
+#include "../System/cameraController.hpp"
 
 namespace Game
 {
@@ -16,7 +17,7 @@ namespace Game
 	{
 	public:
 		MapLoader(const std::string& filepath);
-		void load_to_engine(ECS::Engine* engine, TextureHolder* textures, const std::string& level) const;
+		void load_to_engine(ECS::Engine* engine, TextureHolder* textures, Logic::CameraController* cam, const std::string& level) const;
 	private:
 		ldtk::Project m_project;
 	};

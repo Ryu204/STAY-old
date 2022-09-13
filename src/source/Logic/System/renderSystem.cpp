@@ -1,5 +1,6 @@
 #include "../../../header/Logic/System/renderSystem.hpp"
 #include "../../../header/Logic/Component/componentList.hpp"
+#include "../../../header/Logic/Physics/collision.hpp"
 
 #include <cassert>
 
@@ -17,12 +18,12 @@ namespace Logic
 		m_target = target;
 	}
 
-	void RenderSystem::render()
+	void RenderSystem::render(const sf::View& view)
 	{
-		batch_vertices();
-		for (auto& p : m_vertex_arr)
+		batch_vertices(view);
+		for (std::vector<const sf::Texture*>::iterator itr = m_layers.begin(); itr != m_layers.end(); itr++)
 		{
-			m_target->draw(p.second, p.first);
+			m_target->draw(m_vertex_arr[*itr], *itr);
 		}
 	}
 
@@ -30,18 +31,23 @@ namespace Logic
     {
         assert(m_vertex_arr.find(txtr) == m_vertex_arr.end() && "Texture registered");
         m_vertex_arr.emplace(txtr, sf::VertexArray(sf::Quads));
+        m_layers.push_back(txtr);
     }
 
-	void RenderSystem::batch_vertices()
+	void RenderSystem::batch_vertices(const sf::View& view)
 	{
         for (auto& p : m_vertex_arr)
         {
             p.second.clear();
         }
+        sf::FloatRect view_bounds(sf::Vector2f(view.getCenter()) - view.getSize() / 2.f, view.getSize());
         for (auto e : m_entities)
         {
             auto const& rd = m_engine->get_component<Component::Render>(e);
             auto const& tf = m_engine->get_component<Component::Transform>(e);
+            // If entities is outofbound skip
+            if (!Collision::AABB(view_bounds, tf.rect))
+                continue;
             sf::Vertex v[4];
             // Init rect position
             // Realease version
