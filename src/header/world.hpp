@@ -8,6 +8,7 @@
 
 #include "Logic/System/ecsInit.hpp"
 #include "Logic/Loader/mapLoader.hpp"
+#include "Logic/System/cameraController.hpp"
 
 class World
 {
@@ -18,6 +19,7 @@ public:
 	void render();
 private:
 	RWindow* m_window;
+	Logic::CameraController m_camera;
 	ECS::Engine m_engine;
 
 	SPtr<Logic::RenderSystem> m_renderer;

@@ -22,6 +22,20 @@ namespace Utilise
 		moved.left = center.x - moved.width / 2.f;
 		moved.top = center.y - moved.height / 2.f;
 	}
+
+	inline sf::Vector2f get_center(const sf::FloatRect& rect)
+	{
+		return sf::Vector2f(rect.left + rect.width / 2.f, rect.top + rect.height / 2.f);
+	}
+
+	// Linear interpolation between start and end
+	// t is clamped
+	template<typename T>
+	T lerp(const T& start, const T& end, float t = 0.5f)
+	{
+		t = std::max(std::min(1.f, t), 0.f);
+		return start * (1 - t) + end * t;
+	}
 }
 
 #endif // !STAY_HELPER_UTILISE_HPP

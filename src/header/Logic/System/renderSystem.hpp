@@ -9,6 +9,7 @@
 */
 
 #include <map>
+#include <vector>
 
 #include "../../Core/coreAlias.hpp"
 #include "../../Core/ECS/engine.hpp"
@@ -20,14 +21,15 @@ namespace Logic
 	public:
 		RenderSystem(ECS::Engine* engine);
 		void init(RTarget* target);
-		void render();
+		void render(const sf::View& view);
 		void register_texture(const sf::Texture* txtr);
 	private:
 		// This function updates the vertex arrays
-		void batch_vertices();
+		void batch_vertices(const sf::View& view);
 	private:
 		RTarget* m_target;
 		std::map<const sf::Texture*, sf::VertexArray> m_vertex_arr;
+		std::vector<const sf::Texture*> m_layers;
 	};
 }
 

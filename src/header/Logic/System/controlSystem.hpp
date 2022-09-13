@@ -15,6 +15,7 @@ namespace Logic
 	public:
 		ControlSystem(ECS::Engine* engine);
 		void update(sf::Time dt);
+		sf::Vector2f get_player_center() const;
 	};
 }
 

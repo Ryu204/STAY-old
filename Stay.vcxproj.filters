@@ -72,6 +72,9 @@
     <ClCompile Include="src\source\Logic\Loader\preset.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\header\Logic\System\cameraController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\header\Core\ECS\entityManager.hpp">
@@ -162,6 +165,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\header\Logic\Loader\preset.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\Logic\System\cameraController.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

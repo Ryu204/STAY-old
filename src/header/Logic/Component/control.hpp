@@ -15,6 +15,9 @@ namespace Component
 		float speed = 300.f;
 		float gravity = 2000.f;
 		float jump_height = 100.f;
+
+		// Conditional
+		bool jumped = false;
 	};
 }
 
