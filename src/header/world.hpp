@@ -27,6 +27,7 @@ private:
 	SPtr<Collision::CollisionSystem> m_collider;
 	SPtr<Logic::PositionSystem> m_positioner;
 	SPtr<Logic::ControlSystem> m_controller;
+	SPtr<Logic::HookSystem> m_hookgun;
 
 	TextureHolder m_textures;
 	Game::MapLoader m_map_loader;

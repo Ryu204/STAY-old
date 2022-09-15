@@ -18,6 +18,7 @@ namespace Component
 		{
 			Platform,
 			Player,
+			HookHead,
 			None
 		};
 

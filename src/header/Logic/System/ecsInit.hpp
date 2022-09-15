@@ -13,6 +13,7 @@
 #include "collisionSystem.hpp"
 #include "positionSystem.hpp"
 #include "controlSystem.hpp"
+#include "hookSystem.hpp"
 #include "../Loader/textureHolder.hpp"
 
 namespace ECS
@@ -22,7 +23,8 @@ namespace ECS
 		SPtr<Logic::RigidSystem>& rigid,
 		SPtr<Collision::CollisionSystem>& collider,
 		SPtr<Logic::PositionSystem>& positioner,
-		SPtr<Logic::ControlSystem>& controller);
+		SPtr<Logic::ControlSystem>& controller,
+		SPtr<Logic::HookSystem>& hookgun);
 }
 
 #endif // !STAY_LOGIC_SYSTEM_ECSINIT_HPP

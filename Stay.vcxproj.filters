@@ -72,7 +72,10 @@
     <ClCompile Include="src\source\Logic\Loader\preset.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\header\Logic\System\cameraController.cpp">
+    <ClCompile Include="src\source\Logic\System\cameraController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\source\Logic\System\hookSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -168,6 +171,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\header\Logic\System\cameraController.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\Logic\Component\hook.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\Logic\System\hookSystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

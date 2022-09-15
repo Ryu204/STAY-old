@@ -26,6 +26,7 @@ namespace Logic
 		void update(sf::Vector2f target, sf::Time dt);
 	private:
 		sf::View m_view;
+		sf::FloatRect m_current_region;
 		std::vector<sf::FloatRect> m_regions;
 	};
 }

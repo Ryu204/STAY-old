@@ -11,5 +11,6 @@
 #include "transform.hpp"
 #include "collider.hpp"
 #include "control.hpp"
+#include "hook.hpp"
 
 #endif // !STAY_LOGIC_COMPONENTLIST_HPP

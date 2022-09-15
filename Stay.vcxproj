@@ -151,7 +151,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\header\Logic\System\cameraController.cpp" />
     <ClCompile Include="src\source\application.cpp" />
     <ClCompile Include="src\source\Core\ECS\componentArray.cpp" />
     <ClCompile Include="src\source\Core\ECS\componentManager.cpp" />
@@ -163,9 +162,11 @@
     <ClCompile Include="src\source\Logic\Loader\preset.cpp" />
     <ClCompile Include="src\source\Logic\Loader\textureHolder.cpp" />
     <ClCompile Include="src\source\Logic\Physics\collision.cpp" />
+    <ClCompile Include="src\source\Logic\System\cameraController.cpp" />
     <ClCompile Include="src\source\Logic\System\collisionSystem.cpp" />
     <ClCompile Include="src\source\Logic\System\controlSystem.cpp" />
     <ClCompile Include="src\source\Logic\System\ecsInit.cpp" />
+    <ClCompile Include="src\source\Logic\System\hookSystem.cpp" />
     <ClCompile Include="src\source\Logic\System\positionSystem.cpp" />
     <ClCompile Include="src\source\world.cpp" />
     <ClCompile Include="src\source\Logic\System\renderSystem.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="src\header\Helper\utilise.hpp" />
     <ClInclude Include="src\header\Logic\Component\collider.hpp" />
     <ClInclude Include="src\header\Logic\Component\control.hpp" />
+    <ClInclude Include="src\header\Logic\Component\hook.hpp" />
     <ClInclude Include="src\header\Logic\Loader\mapLoader.hpp" />
     <ClInclude Include="src\header\Logic\Loader\preset.hpp" />
     <ClInclude Include="src\header\Logic\Loader\textureHolder.hpp" />
@@ -196,6 +198,7 @@
     <ClInclude Include="src\header\Logic\System\collisionSystem.hpp" />
     <ClInclude Include="src\header\Logic\System\controlSystem.hpp" />
     <ClInclude Include="src\header\Logic\System\ecsInit.hpp" />
+    <ClInclude Include="src\header\Logic\System\hookSystem.hpp" />
     <ClInclude Include="src\header\Logic\System\positionSystem.hpp" />
     <ClInclude Include="src\header\world.hpp" />
     <ClInclude Include="src\header\Logic\Component\componentList.hpp" />

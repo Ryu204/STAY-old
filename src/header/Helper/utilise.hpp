@@ -36,6 +36,20 @@ namespace Utilise
 		t = std::max(std::min(1.f, t), 0.f);
 		return start * (1 - t) + end * t;
 	}
+
+	inline sf::Vector2f normalise(const sf::Vector2f& vec)
+	{
+		if (vec == sf::Vector2f())
+			return vec;
+
+		float length = std::sqrt(vec.x * vec.x + vec.y * vec.y);
+		return vec / length;
+	}
+
+	inline float length(const sf::Vector2f vec)
+	{
+		return std::sqrt(vec.x * vec.x + vec.y * vec.y);
+	}
 }
 
 #endif // !STAY_HELPER_UTILISE_HPP

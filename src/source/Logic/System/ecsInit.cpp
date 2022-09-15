@@ -8,7 +8,8 @@ namespace ECS
 		SPtr<Logic::RigidSystem>& rigid,
 		SPtr<Collision::CollisionSystem>& collider,
 		SPtr<Logic::PositionSystem>& positioner,
-		SPtr<Logic::ControlSystem>& controller)
+		SPtr<Logic::ControlSystem>& controller,
+		SPtr<Logic::HookSystem>& hookgun)
 	{
 		// Register components
 		engine->register_component<Component::Transform>();
@@ -16,12 +17,14 @@ namespace ECS
 		engine->register_component<Component::Rigidbody>();
 		engine->register_component<Component::Collider>();
 		engine->register_component<Component::Control>();
+		engine->register_component<Component::Hook>();
 
 		// Register and init systems
 		renderer = engine->register_system<Logic::RenderSystem>();
 		renderer->init(rtar);
 		renderer->register_texture(&txtrs->get("test"));
 		renderer->register_texture(&txtrs->get("Cat"));
+		renderer->register_texture(&txtrs->get("Hook"));
 		renderer->register_texture(&txtrs->get("Mossy"));
 
 		rigid = engine->register_system<Logic::RigidSystem>();
@@ -31,6 +34,9 @@ namespace ECS
 		positioner = engine->register_system<Logic::PositionSystem>();
 
 		controller = engine->register_system<Logic::ControlSystem>();
+
+		hookgun = engine->register_system<Logic::HookSystem>();
+		hookgun->init(rtar, txtrs);
 
 		// Set signature
 		Signature s = engine->generate_Signature<Component::Transform, Component::Render>();
@@ -47,5 +53,8 @@ namespace ECS
 
 		s = engine->generate_Signature<Component::Rigidbody, Component::Control>();
 		engine->set_system_Signature<Logic::ControlSystem>(s);
+
+		s = engine->generate_Signature<Component::Collider, Component::Rigidbody, Component::Hook>();
+		engine->set_system_Signature<Logic::HookSystem>(s);
 	}
 }
