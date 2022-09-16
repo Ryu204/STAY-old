@@ -1,42 +1,47 @@
 #include "../../../header/Logic/System/controlSystem.hpp"
-#include "../../../header/Logic/Component/componentList.hpp"
 #include "../../../header/Helper/utilise.hpp"
 
 #include <cassert>
+#include <memory>
 
 namespace Logic
 {
     ControlSystem::ControlSystem(ECS::Engine* engine)
         : System(engine)
     {
-
+        m_states[Component::Control::NORMAL] = std::make_unique<Character::NormalState>(m_engine);
+        // ...
     }  
+
+    void ControlSystem::handle_event(const sf::Event& event)
+    {
+        for (auto& e : m_entities)
+        {
+            auto& ctrl = m_engine->get_component<Component::Control>(e);
+            m_states[ctrl.current_state]->handle_event(event);
+        }
+    }
+
 
     void ControlSystem::update(sf::Time dt)
     {
-        for (auto e : m_entities)
+        for (auto& e : m_entities)
         {
             auto& ctrl = m_engine->get_component<Component::Control>(e);
-            auto& rg = m_engine->get_component<Component::Rigidbody>(e);
+            auto& rd = m_engine->get_component<Component::Render>(e);
 
-            rg.velocity.x = 0;
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-                rg.velocity.x += ctrl.speed;
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-                rg.velocity.x -= ctrl.speed;
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::J) && !ctrl.jumped)
+            if (ctrl.state_changed)
             {
-                rg.velocity.y = -std::sqrt(2 * ctrl.gravity * ctrl.jump_height);
-                ctrl.jumped = true;
+                ctrl.state_changed = false;
+                m_states[ctrl.current_state]->init(e);
             }
-
-            rg.velocity.y += ctrl.gravity * dt.asSeconds();
+            m_states[ctrl.current_state]->update(dt, e);
         }
     }
 
     sf::Vector2f ControlSystem::get_player_center() const
     {
-        assert(m_entities.size() != 0 && "Player is dead");
+        assert(m_entities.size() == 1 && "Player is dead");
 
         const auto& en = *m_entities.begin();
         assert(m_engine->has_component<Component::Transform>(en) && "Player has no transform");

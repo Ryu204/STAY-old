@@ -21,10 +21,10 @@ namespace Preset
 	{
 		const auto& en = engine->create_entity();
 		engine->add_component(en, Component::Transform{ transform_rect });
-		engine->add_component(en, Component::Rigidbody{ });
+		engine->add_component(en, Component::Rigidbody{ sf::Vector2f(), sf::Vector2f(0, abs(gravity)) });
 		engine->add_component(en, Component::Collider{ collider_rect, Component::Collider::Player });
 		engine->add_component(en, Component::Render{ texture, texture_rect });
 		engine->add_component(en, Component::Control{ speed, gravity, jump_height, false });
-		engine->add_component(en, Component::Hook{ Component::Hook::Idle });
+		engine->add_component(en, Component::Hook{ Component::Hook::IDLE });
 	}
 }

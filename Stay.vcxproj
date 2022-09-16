@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\header\Logic\Character\hookState.hpp" />
     <ClCompile Include="src\source\application.cpp" />
     <ClCompile Include="src\source\Core\ECS\componentArray.cpp" />
     <ClCompile Include="src\source\Core\ECS\componentManager.cpp" />
@@ -158,6 +159,9 @@
     <ClCompile Include="src\source\Core\ECS\entityManager.cpp" />
     <ClCompile Include="src\source\Core\ECS\system.cpp" />
     <ClCompile Include="src\source\Core\ECS\systemManager.cpp" />
+    <ClCompile Include="src\source\Logic\Character\characterState.cpp" />
+    <ClCompile Include="src\source\Logic\Character\hookState.cpp" />
+    <ClCompile Include="src\source\Logic\Character\normalState.cpp" />
     <ClCompile Include="src\source\Logic\Loader\mapLoader.cpp" />
     <ClCompile Include="src\source\Logic\Loader\preset.cpp" />
     <ClCompile Include="src\source\Logic\Loader\textureHolder.cpp" />
@@ -187,6 +191,8 @@
     <ClInclude Include="src\header\Core\ECS\value.hpp" />
     <ClInclude Include="src\header\Core\resourceHolder.hpp" />
     <ClInclude Include="src\header\Helper\utilise.hpp" />
+    <ClInclude Include="src\header\Logic\Character\characterState.hpp" />
+    <ClInclude Include="src\header\Logic\Character\normalState.hpp" />
     <ClInclude Include="src\header\Logic\Component\collider.hpp" />
     <ClInclude Include="src\header\Logic\Component\control.hpp" />
     <ClInclude Include="src\header\Logic\Component\hook.hpp" />

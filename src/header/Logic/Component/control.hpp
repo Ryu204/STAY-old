@@ -12,12 +12,22 @@ namespace Component
 {
 	struct Control
 	{
+		enum State
+		{
+			NORMAL,
+			HOOK,
+			STATECOUNT
+		};
 		float speed = 300.f;
 		float gravity = 2000.f;
 		float jump_height = 100.f;
 
 		// Conditional
+
 		bool jumped = false;
+		bool face_right = true;
+		State current_state = NORMAL;
+		bool state_changed = false;
 	};
 }
 

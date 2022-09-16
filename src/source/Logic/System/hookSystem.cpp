@@ -29,7 +29,7 @@ namespace Logic
 			auto& hk = m_engine->get_component<Component::Hook>(e);
 			auto& col = m_engine->get_component<Component::Collider>(e);
 
-			if (hk.state == Component::Hook::Idle)
+			if (hk.state == Component::Hook::IDLE)
 				continue;
 
 			line.append(sf::Vertex(Utilise::get_center(col.rect)));
@@ -49,12 +49,13 @@ namespace Logic
 			// auto& rg = m_engine->get_component<Component::Rigidbody>(e);
 			auto& hk = m_engine->get_component<Component::Hook>(e);
 			auto& col = m_engine->get_component<Component::Collider>(e);
+			auto& rg = m_engine->get_component<Component::Rigidbody>(e);
 
 			bool press_L = sf::Keyboard::isKeyPressed(sf::Keyboard::L);
 
 			switch (hk.state)
 			{
-			case Component::Hook::Idle:
+			case Component::Hook::IDLE:
 			{
 				sf::Vector2f dir;
 				if (press_L)
@@ -67,68 +68,75 @@ namespace Logic
 						dir.y -= 1.f;
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 						dir.y += 1.f;
-					if (dir != sf::Vector2f())
-					{
-						hk.head = m_engine->create_entity();
-						//create head
-						sf::FloatRect head_col{ 0, 0, 32, 32 };
-						Utilise::align(head_col, col.rect);
-						m_engine->add_component(hk.head, Component::Transform{ head_col });
-						head_col.width /= 2.f;  head_col.height /= 2.f;
-						Utilise::align(head_col, col.rect);
-						m_engine->add_component(hk.head, Component::Collider{ head_col, Component::Collider::HookHead });
-						m_engine->add_component(hk.head, Component::Rigidbody{ Utilise::normalise(dir) * hk.initial_speed, sf::Vector2f(0, 100)});
-						m_engine->add_component(hk.head, Component::Render{ m_hook_texture, sf::IntRect(0, 0, 32, 32) });
-						//=======
-						hk.state = Component::Hook::Shot;
-					}
+					if (dir == sf::Vector2f())
+						dir = sf::Vector2f(0, -1);
+
+					hk.head = m_engine->create_entity();
+					//create head
+					sf::FloatRect head_col{ 0, 0, 32, 32 };
+					Utilise::align(head_col, col.rect);
+					m_engine->add_component(hk.head, Component::Transform{ head_col });
+					head_col.width /= 2.f;  head_col.height /= 2.f;
+					Utilise::align(head_col, col.rect);
+					m_engine->add_component(hk.head, Component::Collider{ head_col, Component::Collider::HookHead });
+					m_engine->add_component(hk.head, Component::Rigidbody{ Utilise::normalise(dir) * hk.initial_speed, sf::Vector2f(0, 500)});
+					m_engine->add_component(hk.head, Component::Render{ m_hook_texture, sf::IntRect(0, 0, 32, 32) });
+					//=======
+					hk.state = Component::Hook::SHOT;
 				}
 				break;
 			}
-			case Component::Hook::Pull:
+			case Component::Hook::SHOT:
+			{
+				assert(m_engine->has_component<Component::Rigidbody>(hk.head) && "No hook head found");
+				auto& col_head = m_engine->get_component<Component::Collider>(hk.head);
+
+				// If the head reached too far
+				if (Utilise::length(Utilise::get_center(col.rect) - Utilise::get_center(col_head.rect)) >= hk.max_distance)
+					hk.state = Component::Hook::RETRIEVE;
+				// If it was sticked somewhere
+				else if (col_head.tag != Component::Collider::HookHead)
+					hk.state = Component::Hook::PULL;
+
+				break;
+			}
+			case Component::Hook::PULL:
 			{
 				assert(m_engine->has_component<Component::Collider>(hk.head) && "No hook head found");
 				auto& col_head = m_engine->get_component<Component::Collider>(hk.head);
-
-				if (Utilise::length(Utilise::get_center(col.rect) - Utilise::get_center(col_head.rect)) <= 100) //some const_value
+				sf::Vector2f distance = Utilise::get_center(col.rect) - Utilise::get_center(col_head.rect);
+				
+				if (Utilise::length(distance) <= 30) //some const_value
 				{
 					m_engine->destroy_entity(hk.head);
-					hk.state = Component::Hook::Idle;
+					hk.state = Component::Hook::IDLE;
 				}
 				else
 				{
 					if (press_L)
-						hk.state = Component::Hook::Retrieve;
-					else
-					{
-					} // keep pulling}
+						hk.state = Component::Hook::RETRIEVE;
+					else  // keep pulling
+						rg.velocity = Utilise::normalise(-1.f * distance) * hk.pull_speed;
 				}
 				break;
 			}
-			case Component::Hook::Retrieve:
+			case Component::Hook::RETRIEVE:
 			{
 				assert(m_engine->has_component<Component::Collider>(hk.head) && "No hook head found");
 				auto& col_head = m_engine->get_component<Component::Collider>(hk.head);
+				sf::Vector2f distance = Utilise::get_center(col.rect) - Utilise::get_center(col_head.rect);
 
-				if (Utilise::length(Utilise::get_center(col.rect) - Utilise::get_center(col_head.rect)) <= 100) //some const_value
+				if (Utilise::length(distance) <= 30) //some const_value
 				{
 					m_engine->destroy_entity(hk.head);
-					hk.state = Component::Hook::Idle;
+					hk.state = Component::Hook::IDLE;
 				}
 				else
 				{
-					// keep pulling the string
+					auto& rg_head = m_engine->get_component<Component::Rigidbody>(hk.head);
+					rg_head.acceleration = sf::Vector2f();
+					rg_head.velocity = Utilise::normalise(distance) * hk.initial_speed;
 				}
-				break;
-			}
-			case Component::Hook::Shot:
-			{
-				assert(m_engine->has_component<Component::Rigidbody>(hk.head) && "No hook head found");
-				auto& rg = m_engine->get_component<Component::Rigidbody>(hk.head);
-
-				if (rg.velocity == sf::Vector2f())
-					hk.state = Component::Hook::Pull;
-
 				break;
 			}
 			default:

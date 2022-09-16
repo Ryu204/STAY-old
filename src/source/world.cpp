@@ -21,7 +21,7 @@ World::World(RWindow* window)
 
 void World::process_input(const sf::Event& e)
 {
-	
+	m_controller->handle_event(e);
 }
 
 void World::update(sf::Time dt)

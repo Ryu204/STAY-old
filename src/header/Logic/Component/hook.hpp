@@ -16,17 +16,18 @@ namespace Component
 	{
 		enum State
 		{
-			Idle,
-			Shot,
-			Pull,
-			Retrieve
+			IDLE,
+			SHOT,
+			PULL,
+			RETRIEVE
 		};
 
 		// Information
-		State state = State::Idle;
+		State state = State::IDLE;
 		ECS::Entity head = 0;
 		float max_distance = 200;
 		float initial_speed = 1000;
+		float pull_speed = 300;
 
 		// Calculation
 		sf::Vector2f acceleration = sf::Vector2f();

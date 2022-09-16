@@ -64,7 +64,6 @@ namespace Logic
            v[2].position = sf::Vector2f(tf.rect.left + tf.rect.width, tf.rect.top + tf.rect.height);
            v[3].position = sf::Vector2f(tf.rect.left, tf.rect.top + tf.rect.height);
            
-           
             // Rotation and Scale
             sf::Transformable trans;
             trans.setOrigin(tf.rect.left + tf.rect.width / 2, tf.rect.top + tf.rect.height / 2);
@@ -77,6 +76,15 @@ namespace Logic
             v[1].texCoords = sf::Vector2f(sf::Vector2i(rd.texture_rect.left + rd.texture_rect.width, rd.texture_rect.top));
             v[2].texCoords = sf::Vector2f(sf::Vector2i(rd.texture_rect.left + rd.texture_rect.width, rd.texture_rect.top + rd.texture_rect.height));
             v[3].texCoords = sf::Vector2f(sf::Vector2i(rd.texture_rect.left, rd.texture_rect.top + rd.texture_rect.height));
+
+            // Set the direction of the sprite
+            if (m_engine->has_component<Component::Control>(e)
+                && m_engine->get_component<Component::Control>(e).face_right == false)
+            {
+                std::swap(v[0].texCoords, v[1].texCoords);
+                std::swap(v[2].texCoords, v[3].texCoords);
+            }
+
             // Batching
             for (int i = 0; i < 4; i++)
             {

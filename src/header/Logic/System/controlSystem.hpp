@@ -7,6 +7,9 @@
 
 #include "../../Core/coreAlias.hpp"
 #include "../../Core/ECS/engine.hpp"
+#include "../Character/normalState.hpp"
+
+#include "../Component/componentList.hpp"
 
 namespace Logic
 {
@@ -14,8 +17,11 @@ namespace Logic
 	{
 	public:
 		ControlSystem(ECS::Engine* engine);
+		void handle_event(const sf::Event& e);
 		void update(sf::Time dt);
 		sf::Vector2f get_player_center() const;
+	private:
+		std::array<SPtr<Character::CharacterState>, Component::Control::STATECOUNT> m_states;
 	};
 }
 
