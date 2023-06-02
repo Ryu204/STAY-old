@@ -113,7 +113,7 @@ namespace Collision
 
     void resolve(Component::Rigidbody& mover, float time, sf::Vector2f normal)
     {
-        mover.velocity.x += (abs(mover.velocity.x) + 10.f) * normal.x * (1.f - time);
-        mover.velocity.y += (abs(mover.velocity.y) + 10.f) * normal.y * (1.f - time);
+        mover.velocity.x += (abs(mover.velocity.x)) * normal.x * (1.f - time);
+        mover.velocity.y += (abs(mover.velocity.y)) * normal.y * (1.f - time);
     }
 }

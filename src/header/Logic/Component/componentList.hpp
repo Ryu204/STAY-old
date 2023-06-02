@@ -7,7 +7,7 @@
 */
 
 #include "render.hpp"
-#include "rigidBody.hpp"
+#include "rigidbody.hpp"
 #include "transform.hpp"
 #include "collider.hpp"
 #include "control.hpp"

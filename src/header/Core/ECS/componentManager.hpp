@@ -114,7 +114,7 @@ namespace ECS
 	{
 		auto name = typeid(T).name();
 		assert(m_type_list.find(name) != m_type_list.end() && "Non-existed component type");
-		return *dynamic_pointer_cast<ComponentArray<T>>(m_arrays[name]);
+		return *std::dynamic_pointer_cast<ComponentArray<T>>(m_arrays[name]);
 	}
 }
 
