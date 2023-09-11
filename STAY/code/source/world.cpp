@@ -7,11 +7,11 @@
 World::World(RWindow* window)
 	: m_window(window)
 	, m_camera(sf::Vector2f(300, 300))
-	, m_map_loader("resource/level/movement.ldtk")
+	, m_map_loader("asset/level/movement.ldtk")
 {
-	m_textures.load("test", "resource/texture/test.png");
-	m_textures.load("Cat", "resource/texture/cat.png");
-	m_textures.load("Mossy", "resource/texture/tileset.png");
+	m_textures.load("test", "asset/texture/test.png");
+	m_textures.load("Cat", "asset/texture/cat.png");
+	m_textures.load("Mossy", "asset/texture/tileset.png");
 
 	ECS::ECS_init(&m_engine, m_window, &m_textures, m_renderer, m_rigid, m_collider, m_positioner, m_controller);
 

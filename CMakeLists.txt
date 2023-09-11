@@ -1,17 +1,20 @@
-cmake_minimum_required(VERSION 3.10)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
 
-project(Stay)
+PROJECT(STAY VERSION 0.1)
 
-# dependencies
-find_package(SFML 2.5 COMPONENTS graphics REQUIRED)
-find_package(LDtkLoader 1.2 REQUIRED)
-# file
-file(GLOB_RECURSE
-    SOURCE_CODE
-    "*/*.hpp"
-    "*/*.cpp"
-    "*/*.h"
-    "*/*.c")
-# link libraries
-add_executable(Stay ${SOURCE_CODE})
-target_link_libraries(Stay PRIVATE sfml-graphics LDtkLoader)
+SET(CMAKE_CXX_STANDARD 14)
+SET(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+FIND_PACKAGE(SFML 2.6 COMPONENTS graphics audio)
+FIND_PACKAGE(LDtkLoader 1.2)
+
+FILE(GLOB_RECURSE 
+    STAY_SOURCE_CODE
+    CONFIGURE_DEPENDS
+    "STAY/code/*.cpp"
+    "STAY/code/*.hpp"
+    "STAY/code/*.c"
+    "STAY/code/*.h")
+
+ADD_EXECUTABLE(STAY ${STAY_SOURCE_CODE})
+TARGET_LINK_LIBRARIES(STAY PUBLIC LDtkLoader sfml-graphics sfml-audio)
